@@ -1,0 +1,11 @@
+.invitation-closing {
+  @apply flex flex-col items-center gap-4 px-6 pt-10 pb-16 text-center;
+}
+
+.invitation-closing__message {
+  @apply max-w-md font-display text-xl text-foreground italic md:text-2xl;
+}
+
+.invitation-closing__signature {
+  @apply font-script text-3xl text-primary;
+}

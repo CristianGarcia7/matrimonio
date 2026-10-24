@@ -1,0 +1,23 @@
+.event-card {
+  @apply flex flex-col items-center gap-2 rounded-2xl border border-border bg-card px-6 py-10 text-center;
+}
+
+.event-card__title {
+  @apply font-display text-2xl text-foreground md:text-3xl;
+}
+
+.event-card__time {
+  @apply font-display text-xl text-primary;
+}
+
+.event-card__venue {
+  @apply text-base font-medium text-foreground;
+}
+
+.event-card__place {
+  @apply text-sm text-muted-foreground;
+}
+
+.event-card__actions {
+  @apply mt-4 flex flex-col items-center gap-3 sm:flex-row sm:justify-center;
+}

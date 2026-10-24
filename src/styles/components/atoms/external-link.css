@@ -1,0 +1,8 @@
+.external-link {
+  @apply inline-flex min-h-11 items-center justify-center gap-2 rounded-full border border-primary bg-primary px-6 text-sm font-medium tracking-wide text-primary-foreground transition-colors;
+  @apply hover:bg-primary/90 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring;
+}
+
+.external-link--subtle {
+  @apply bg-transparent text-primary hover:bg-primary/10;
+}

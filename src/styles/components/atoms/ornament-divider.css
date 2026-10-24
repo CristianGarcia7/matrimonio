@@ -1,0 +1,13 @@
+.ornament-divider {
+  @apply mx-auto block h-6 w-48 text-primary;
+}
+
+.ornament-divider__line {
+  @apply stroke-current;
+  stroke-width: 1;
+}
+
+.ornament-divider__leaf,
+.ornament-divider__dot {
+  @apply fill-current;
+}
