@@ -11,8 +11,6 @@ export interface GalleryPhoto {
   alt: string;
   width: number;
   height: number;
-  // Where cropped frames should focus; defaults to the centre.
+  // Where cropped cards should focus; defaults to the centre.
   cropFocus?: GalleryCropFocus;
-  // Very tall photos take two rows in the desktop collage.
-  isTall?: boolean;
 }

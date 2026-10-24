@@ -77,6 +77,9 @@ export const invitationMessages = {
     subtitle: 'Algunos de los momentos que nos trajeron hasta aquí',
     openPhotoLabel: (position: number, total: number) =>
       `Ampliar foto ${position} de ${total}:`,
+    deckLabel: 'Galería de fotos',
+    slideLabel: (position: number, total: number) =>
+      `Foto ${position} de ${total}`,
     dotsLabel: 'Fotos de la galería',
     goToPhotoLabel: (position: number) => `Ir a la foto ${position}`,
     dialogAriaLabel: 'Visor de fotos',

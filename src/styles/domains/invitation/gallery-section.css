@@ -1,108 +1,116 @@
-/* Mobile: full-bleed scroll-snap carousel. Desktop: the section breaks out of
-   the narrow column into a wider polaroid collage. */
+/* "Nuestra historia": an auto-advancing 3D coverflow deck. Side cards fan
+   out to both sides of the front card; their placement is driven by the
+   custom properties set per card (--deck-offset, --deck-distance,
+   --deck-side). */
 .gallery-section {
-  @apply md:w-[min(64rem,100vw_-_3rem)] md:self-center;
+  overflow-x: clip;
 }
 
-.gallery-section__track {
-  @apply -mx-4 flex snap-x snap-mandatory gap-5 overflow-x-auto px-[11%] pt-3 pb-6;
-  scrollbar-width: none;
+.gallery-deck {
+  @apply mx-auto flex w-full max-w-[20.875rem] flex-col items-center gap-4 rounded-2xl md:max-w-[35rem];
+  @apply focus-visible:outline-gold focus-visible:outline-2 focus-visible:outline-offset-8;
 }
 
-.gallery-section__track::-webkit-scrollbar {
-  @apply hidden;
+.gallery-deck__stage {
+  @apply relative h-[21.25rem] w-full select-none md:h-[32.5rem];
+  perspective: 1000px;
+  touch-action: pan-y;
 }
 
-@media (min-width: 48rem) {
-  .gallery-section__track {
-    @apply mx-0 grid auto-rows-[13rem] grid-cols-4 gap-6 overflow-visible px-0 pb-2;
-    grid-auto-flow: dense;
-  }
+.gallery-deck__cards {
+  @apply pointer-events-none relative size-full;
+  transform-style: preserve-3d;
 }
 
-.gallery-frame {
-  @apply bg-paper border-gold-deep/35 relative aspect-[4/5] w-[78%] flex-none snap-center rounded-[3px] border p-2 pb-7;
-  rotate: var(--frame-tilt, 0deg);
-  box-shadow:
-    0 18px 32px -18px rgb(0 0 0 / 0.75),
-    0 4px 10px -6px rgb(0 0 0 / 0.45);
+.gallery-deck-card {
+  /* The list's own plane sits in front of the receding cards, so only the
+     cards take pointer events. */
+  @apply pointer-events-auto absolute top-[4%] left-1/2 aspect-[3/4] h-[92%] cursor-pointer;
+  transform: translateX(calc(-50% + var(--deck-offset) * 60%))
+    translateZ(calc(var(--deck-distance) * -150px))
+    rotateY(calc(var(--deck-side) * 45deg))
+    scale(max(0.7, 1 - 0.15 * var(--deck-distance)));
+  opacity: max(0, 1 - 0.25 * var(--deck-distance));
+  filter: brightness(calc(1 - 0.14 * var(--deck-distance)));
   transition:
-    rotate 300ms ease,
-    scale 300ms ease;
+    transform 1100ms ease-in-out,
+    opacity 1100ms ease-in-out,
+    filter 1100ms ease-in-out;
 }
 
-/* Alternating hand-placed tilt. */
-.gallery-frame:nth-child(4n + 1) {
-  --frame-tilt: -1.6deg;
-}
-.gallery-frame:nth-child(4n + 2) {
-  --frame-tilt: 1.2deg;
-}
-.gallery-frame:nth-child(4n + 3) {
-  --frame-tilt: -0.8deg;
-}
-.gallery-frame:nth-child(4n) {
-  --frame-tilt: 1.8deg;
+.gallery-deck-card--active {
+  @apply cursor-zoom-in;
 }
 
-@media (min-width: 48rem) {
-  .gallery-frame {
-    @apply aspect-auto h-full w-auto pb-8;
-  }
-
-  .gallery-frame--featured {
-    @apply col-span-2 row-span-2;
-  }
-
-  /* Pinned to the right of rows 3-4 so the 4x4 collage packs without holes
-     (featured 2x2 + tall 1x2 + ten single frames). */
-  .gallery-frame--tall {
-    @apply col-start-4 row-span-2 row-start-3;
-  }
-
-  .gallery-frame:hover,
-  .gallery-frame:focus-within {
-    @apply z-10 scale-[1.03];
-    rotate: 0deg;
-  }
+.gallery-deck-card--hidden {
+  @apply pointer-events-none opacity-0;
 }
 
-.gallery-frame__link {
-  @apply relative block size-full overflow-hidden rounded-[2px] focus-visible:outline-gold focus-visible:outline-2 focus-visible:outline-offset-4;
+.gallery-deck-card__link {
+  @apply ring-gold/70 bg-navy relative block size-full overflow-hidden rounded-2xl ring-1;
+  @apply focus-visible:outline-gold focus-visible:outline-2 focus-visible:outline-offset-4;
+  box-shadow:
+    0 26px 40px -22px rgb(0 0 0 / 0.85),
+    0 8px 16px -10px rgb(0 0 0 / 0.5);
+  -webkit-user-drag: none;
 }
 
-.gallery-frame__image {
-  @apply object-cover;
-}
-
-.gallery-frame__image--center {
-  @apply object-center;
-}
-
-.gallery-frame__image--upper-left {
-  @apply object-[40%_30%];
-}
-
-.gallery-dots {
-  @apply flex flex-wrap justify-center gap-1 md:hidden;
-}
-
-/* 24px hit area around a small visible dot. */
-.gallery-dots__dot {
-  @apply relative size-6 rounded-full focus-visible:outline-gold focus-visible:outline-2;
-}
-
-.gallery-dots__dot::after {
-  @apply bg-ivory/35 absolute top-1/2 left-1/2 size-2 -translate-1/2 rounded-full transition-colors;
+/* Thin ivory inner edge, like a mount inside the gold frame. */
+.gallery-deck-card__link::after {
+  @apply pointer-events-none absolute inset-0 rounded-2xl;
+  box-shadow: inset 0 0 0 3px color-mix(in oklab, var(--ivory) 55%, transparent);
   content: '';
 }
 
-.gallery-dots__dot--active::after {
-  @apply bg-gold;
+.gallery-deck-card__image {
+  @apply object-cover;
+}
+
+.gallery-deck-card__image--center {
+  @apply object-center;
+}
+
+.gallery-deck-card__image--upper-left {
+  @apply object-[40%_30%];
+}
+
+.gallery-deck__controls {
+  @apply flex items-center justify-center gap-3;
+}
+
+/* Swipe is the primary gesture on phones; arrows appear from tablet up. */
+.gallery-deck__arrow {
+  @apply border-gold/60 text-gold hidden size-9 flex-none items-center justify-center rounded-full border transition-colors md:flex;
+  @apply hover:bg-gold hover:text-navy focus-visible:outline-gold focus-visible:outline-2 focus-visible:outline-offset-2;
+}
+
+.gallery-deck__arrow svg {
+  @apply size-4 fill-none stroke-current stroke-[1.5];
+}
+
+.gallery-deck__dots {
+  @apply flex flex-wrap justify-center;
+}
+
+/* 24px hit area around a small visible dot; the active one stretches. */
+.gallery-deck__dot {
+  @apply relative h-6 w-[1.375rem] rounded-full focus-visible:outline-gold focus-visible:outline-2;
+}
+
+.gallery-deck__dot::after {
+  @apply bg-ivory/35 absolute top-1/2 left-1/2 h-1.5 w-1.5 -translate-1/2 rounded-full;
+  transition:
+    width 400ms ease,
+    background-color 400ms ease;
+  content: '';
+}
+
+.gallery-deck__dot--active::after {
+  @apply bg-gold w-4;
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .gallery-frame {
-    @apply transition-none;
+  .gallery-deck-card {
+    transition-duration: 300ms;
   }
 }

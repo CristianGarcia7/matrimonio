@@ -1,10 +1,10 @@
 import { GALLERY_CROP_FOCUS } from './types/gallery-photo.types';
 import type { GalleryPhoto } from './types/gallery-photo.types';
 
-// DOM id of the photo track; the lightbox delegates clicks from it.
+// DOM id of the deck's card list; the lightbox delegates clicks from it.
 export const GALLERY_TRACK_ID = 'gallery-track';
 
-// Order chosen by the couple: the first photo is featured. Files live in
+// Order chosen by the couple: the first photo leads the deck. Files live in
 // public/images/gallery (WebP, metadata stripped, max 1600px long edge).
 export const GALLERY_PHOTOS: readonly GalleryPhoto[] = [
   {
@@ -78,7 +78,6 @@ export const GALLERY_PHOTOS: readonly GalleryPhoto[] = [
     alt: 'Jose Ignacio y Patricia abrazados y sonrientes',
     width: 570,
     height: 1600,
-    cropFocus: GALLERY_CROP_FOCUS.UPPER_LEFT,
-    isTall: true
+    cropFocus: GALLERY_CROP_FOCUS.UPPER_LEFT
   }
 ];
