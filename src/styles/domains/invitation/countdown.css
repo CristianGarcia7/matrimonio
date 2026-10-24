@@ -1,9 +1,5 @@
-.countdown-section {
-  @apply px-6 py-20;
-}
-
 .countdown-timer {
-  @apply mx-auto grid max-w-2xl grid-cols-2 gap-4 sm:grid-cols-4;
+  @apply mx-auto grid max-w-md grid-cols-4 gap-2 sm:gap-4;
 }
 
 .countdown-timer--pending {
@@ -11,25 +7,43 @@
 }
 
 .countdown-timer__message {
-  @apply mx-auto flex max-w-xl flex-col items-center gap-3 text-center;
+  @apply mx-auto flex max-w-md flex-col items-center gap-3 text-center;
 }
 
 .countdown-timer__headline {
-  @apply font-display text-3xl text-primary md:text-4xl;
+  @apply font-display text-foil-bright text-3xl sm:text-4xl;
 }
 
 .countdown-timer__detail {
-  @apply text-base text-muted-foreground;
+  @apply text-ivory/85 text-base italic;
 }
 
 .countdown-unit {
-  @apply flex flex-col items-center gap-1 rounded-2xl border border-border bg-card px-4 py-6 shadow-sm shadow-gold/10;
+  @apply flex flex-col items-center gap-2;
+}
+
+.countdown-unit__ring {
+  @apply border-gold/70 relative grid aspect-square w-full max-w-24 place-items-center overflow-hidden rounded-full border;
+  background-image: radial-gradient(
+    circle at 50% 30%,
+    color-mix(in oklab, var(--deep-blue) 70%, transparent),
+    transparent 75%
+  );
+}
+
+.countdown-unit__ring::after {
+  @apply border-gold/25 pointer-events-none absolute inset-1 rounded-full border;
+  content: '';
 }
 
 .countdown-unit__value {
-  @apply font-display text-4xl text-foreground tabular-nums lining-nums md:text-5xl;
+  @apply font-display text-ivory text-3xl tabular-nums sm:text-4xl;
 }
 
 .countdown-unit__label {
-  @apply text-xs tracking-[0.2em] text-muted-foreground uppercase;
+  @apply text-hydrangea text-[0.65rem] tracking-[0.2em] uppercase;
+}
+
+.countdown-section__actions {
+  @apply mt-10 flex justify-center;
 }

@@ -1,6 +1,6 @@
-import type { ReactNode } from 'react';
-
 import { ExternalLink } from '@/components/atoms/external-link';
+import { MapEmbed } from '@/components/atoms/map-embed';
+import { PaperCard } from '@/components/molecules/paper-card';
 
 interface EventCardProps {
   title: string;
@@ -11,7 +11,8 @@ interface EventCardProps {
   mapsUrl: string;
   mapsLinkLabel: string;
   mapsLinkAriaLabel: string;
-  children?: ReactNode;
+  mapEmbedUrl: string;
+  mapTitle: string;
 }
 
 export function EventCard({
@@ -23,23 +24,32 @@ export function EventCard({
   mapsUrl,
   mapsLinkLabel,
   mapsLinkAriaLabel,
-  children
+  mapEmbedUrl,
+  mapTitle
 }: EventCardProps) {
   return (
-    <article className="event-card">
-      <h3 className="event-card__title">{title}</h3>
-      <p className="event-card__time">
-        <span className="sr-only">{timeLabel}: </span>
-        {time}
-      </p>
-      <p className="event-card__venue">{venue}</p>
-      {place && <p className="event-card__place">{place}</p>}
-      <div className="event-card__actions">
-        <ExternalLink href={mapsUrl} ariaLabel={mapsLinkAriaLabel}>
+    <PaperCard hasFlorals={false} className="event-card">
+      <article className="event-card__body">
+        <h3 className="event-card__title">{title}</h3>
+        <p className="event-card__time">
+          <span className="sr-only">{timeLabel}: </span>
+          {time}
+        </p>
+        <p className="event-card__venue">{venue}</p>
+        {place && <p className="event-card__place">{place}</p>}
+        <MapEmbed
+          src={mapEmbedUrl}
+          title={mapTitle}
+          className="event-card__map"
+        />
+        <ExternalLink
+          href={mapsUrl}
+          ariaLabel={mapsLinkAriaLabel}
+          variant="outline"
+        >
           {mapsLinkLabel}
         </ExternalLink>
-        {children}
-      </div>
-    </article>
+      </article>
+    </PaperCard>
   );
 }

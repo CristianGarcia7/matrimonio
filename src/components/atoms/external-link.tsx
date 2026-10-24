@@ -2,11 +2,13 @@ import type { ReactNode } from 'react';
 
 import { cn } from '@/lib/utils';
 
+type ExternalLinkVariant = 'solid' | 'outline' | 'gold';
+
 interface ExternalLinkProps {
   href: string;
   children: ReactNode;
   ariaLabel?: string;
-  isSubtle?: boolean;
+  variant?: ExternalLinkVariant;
   className?: string;
 }
 
@@ -14,7 +16,7 @@ export function ExternalLink({
   href,
   children,
   ariaLabel,
-  isSubtle = false,
+  variant = 'solid',
   className
 }: ExternalLinkProps) {
   return (
@@ -25,7 +27,8 @@ export function ExternalLink({
       aria-label={ariaLabel}
       className={cn(
         'external-link',
-        isSubtle && 'external-link--subtle',
+        variant === 'outline' && 'external-link--outline',
+        variant === 'gold' && 'external-link--gold',
         className
       )}
     >

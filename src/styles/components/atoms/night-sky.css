@@ -1,0 +1,60 @@
+.night-sky {
+  @apply pointer-events-none fixed inset-0 -z-10 overflow-hidden;
+  background-image:
+    radial-gradient(
+      ellipse 120% 55% at 50% -12%,
+      color-mix(in oklab, var(--deep-blue) 80%, transparent),
+      transparent 70%
+    ),
+    radial-gradient(
+      ellipse 90% 45% at 50% 112%,
+      color-mix(in oklab, var(--deep-blue) 45%, transparent),
+      transparent 70%
+    ),
+    linear-gradient(180deg, var(--navy) 0%, var(--midnight) 100%);
+}
+
+.night-sky--contained {
+  @apply absolute;
+}
+
+/* Two tiled layers of gold dust; each tile repeats, so the cost is constant
+   regardless of the viewport size. */
+.night-sky__dust {
+  @apply absolute -inset-1/2;
+}
+
+.night-sky__dust--near {
+  background-image:
+    radial-gradient(3px 3px at 33% 40%, rgb(247 231 180 / 0.85), transparent),
+    radial-gradient(
+      2.6px 2.6px at 79% 88%,
+      rgb(243 220 155 / 0.8),
+      transparent
+    ),
+    radial-gradient(1.6px 1.6px at 8% 12%, #f7e7b4, transparent),
+    radial-gradient(1.2px 1.2px at 27% 64%, #f3dc9b, transparent),
+    radial-gradient(2.2px 2.2px at 46% 22%, #f7e7b4, transparent),
+    radial-gradient(1px 1px at 61% 83%, #e9edf5, transparent),
+    radial-gradient(1.4px 1.4px at 74% 41%, #d4b06a, transparent),
+    radial-gradient(1.8px 1.8px at 89% 9%, #f3dc9b, transparent),
+    radial-gradient(1.1px 1.1px at 93% 72%, #f7e7b4, transparent),
+    radial-gradient(1.3px 1.3px at 17% 91%, #d4b06a, transparent);
+  background-size: 300px 300px;
+  /* Rotated tiles hide the grid the repetition would otherwise reveal. */
+  rotate: -13deg;
+}
+
+.night-sky__dust--far {
+  background-image:
+    radial-gradient(1px 1px at 14% 33%, #d4b06a, transparent),
+    radial-gradient(0.9px 0.9px at 36% 8%, #e9edf5, transparent),
+    radial-gradient(1.2px 1.2px at 52% 52%, #f3dc9b, transparent),
+    radial-gradient(0.8px 0.8px at 68% 27%, #a9c1e3, transparent),
+    radial-gradient(1px 1px at 82% 61%, #d4b06a, transparent),
+    radial-gradient(0.9px 0.9px at 6% 77%, #a9c1e3, transparent),
+    radial-gradient(1.1px 1.1px at 44% 88%, #f7e7b4, transparent);
+  background-size: 190px 190px;
+  rotate: 21deg;
+  opacity: 0.7;
+}

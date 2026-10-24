@@ -9,46 +9,101 @@
   }
 }
 
+@keyframes twinkle {
+  from {
+    opacity: 0.35;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes countdown-tick {
+  from {
+    opacity: 0.15;
+    transform: translateY(-0.35em);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes equalizer {
+  from {
+    transform: scaleY(0.35);
+  }
+  to {
+    transform: scaleY(1);
+  }
+}
+
 /* All motion is opt-in: visitors who prefer reduced motion see static content. */
 @media (prefers-reduced-motion: no-preference) {
   html {
     scroll-behavior: smooth;
   }
 
-  .hero-section > * {
+  .night-sky__dust--near {
+    animation: twinkle 3.8s ease-in-out infinite alternate;
+  }
+
+  .night-sky__dust--far {
+    animation: twinkle 6.2s ease-in-out 1.4s infinite alternate;
+  }
+
+  .hero-section__content > * {
     animation: fade-rise 900ms cubic-bezier(0.2, 0.7, 0.2, 1) both;
   }
 
-  .hero-section > :nth-child(2) {
-    animation-delay: 150ms;
+  .hero-section__content > :nth-child(2) {
+    animation-delay: 120ms;
   }
 
-  .hero-section > :nth-child(3) {
-    animation-delay: 300ms;
+  .hero-section__content > :nth-child(3) {
+    animation-delay: 240ms;
   }
 
-  .hero-section > :nth-child(4) {
-    animation-delay: 420ms;
+  .hero-section__content > :nth-child(4) {
+    animation-delay: 360ms;
   }
 
-  .hero-section > :nth-child(n + 5) {
-    animation-delay: 540ms;
+  .hero-section__content > :nth-child(n + 5) {
+    animation-delay: 480ms;
+  }
+
+  /* The hero entrance waits behind the envelope until it is opened. */
+  html:has(.invitation-cover[data-state='closed']) .hero-section__content > * {
+    animation-play-state: paused;
+  }
+
+  .countdown-unit__value {
+    animation: countdown-tick 450ms ease-out;
+  }
+
+  .music-player--playing .music-player__bar {
+    transform-origin: bottom;
+    animation: equalizer 520ms ease-in-out infinite alternate;
+  }
+
+  .music-player--playing .music-player__bar--high {
+    animation-duration: 380ms;
+  }
+
+  .music-player--playing .music-player__bar--mid {
+    animation-duration: 640ms;
   }
 
   /* Scroll-driven reveal without JavaScript; browsers without support simply
      show the content immediately. */
   @supports (animation-timeline: view()) {
-    .section-heading,
-    .countdown-unit,
-    .countdown-timer__message,
-    .event-card,
-    .parents-group,
-    .guestbook-form,
+    .invitation-section > *,
+    .guestbook-section > *,
     .signature-card,
-    .invitation-closing {
+    .invitation-closing > * {
       animation: fade-rise linear both;
       animation-timeline: view();
-      animation-range: entry 0% cover 25%;
+      animation-range: entry 0% cover 22%;
     }
   }
 }

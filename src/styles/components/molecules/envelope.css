@@ -1,0 +1,77 @@
+.envelope {
+  @apply relative mx-auto aspect-[7/5] w-full max-w-[22rem];
+  perspective: 1400px;
+}
+
+.envelope__back {
+  @apply absolute inset-0 rounded-md;
+  background-image:
+    repeating-linear-gradient(
+      45deg,
+      rgb(212 176 106 / 0.08) 0 1px,
+      transparent 1px 10px
+    ),
+    linear-gradient(160deg, var(--deep-blue), var(--navy));
+  box-shadow: 0 34px 50px -24px rgb(0 0 0 / 0.85);
+}
+
+.envelope__card {
+  @apply bg-paper text-ink absolute inset-x-[6%] top-[5%] bottom-[5%] z-10 flex flex-col items-center gap-1 rounded-sm pt-[9%];
+  box-shadow: 0 6px 18px -8px rgb(0 0 0 / 0.5);
+  transition: transform 1000ms cubic-bezier(0.2, 0.7, 0.2, 1) 600ms;
+}
+
+.envelope__pocket {
+  @apply absolute inset-0 z-20 size-full;
+  filter: drop-shadow(0 -1px 2px rgb(0 0 0 / 0.12));
+}
+
+.envelope__side,
+.envelope__bottom,
+.envelope__flap-shape {
+  stroke: color-mix(in oklab, var(--gold-deep) 55%, transparent);
+  stroke-width: 1;
+  vector-effect: non-scaling-stroke;
+}
+
+.envelope__side {
+  fill: var(--paper-shade);
+}
+
+.envelope__bottom {
+  fill: var(--ivory);
+}
+
+.envelope__flap {
+  @apply absolute inset-x-0 top-0 z-30 h-[62%] w-full;
+  transform-origin: top center;
+  filter: drop-shadow(0 3px 3px rgb(0 0 0 / 0.18));
+  transition:
+    transform 750ms cubic-bezier(0.4, 0, 0.2, 1) 200ms,
+    z-index 0s linear 560ms;
+}
+
+.envelope__flap-shape {
+  fill: var(--paper);
+}
+
+.envelope__seal {
+  @apply absolute top-[62%] left-1/2 z-40 -translate-x-1/2 -translate-y-1/2;
+  transition:
+    opacity 300ms ease,
+    scale 300ms ease;
+}
+
+.envelope--open .envelope__seal {
+  @apply opacity-0;
+  scale: 0.7;
+}
+
+.envelope--open .envelope__flap {
+  @apply z-0;
+  transform: rotateX(180deg);
+}
+
+.envelope--open .envelope__card {
+  transform: translateY(-55%);
+}

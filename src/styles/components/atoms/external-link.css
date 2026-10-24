@@ -1,8 +1,12 @@
 .external-link {
-  @apply inline-flex min-h-11 items-center justify-center gap-2 rounded-full border border-primary bg-primary px-6 text-sm font-medium tracking-wide text-primary-foreground transition-colors;
-  @apply hover:bg-primary/90 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring;
+  @apply border-navy bg-navy text-ivory inline-flex min-h-12 items-center justify-center gap-2 rounded-full border px-7 text-xs tracking-[0.22em] uppercase transition-colors;
+  @apply hover:bg-deep-blue focus-visible:outline-ring focus-visible:outline-2 focus-visible:outline-offset-2;
 }
 
-.external-link--subtle {
-  @apply bg-transparent text-primary hover:bg-primary/10;
+.external-link--outline {
+  @apply text-ink hover:bg-navy hover:text-ivory bg-transparent;
+}
+
+.external-link--gold {
+  @apply border-gold bg-gold/10 text-gold hover:bg-gold hover:text-navy;
 }

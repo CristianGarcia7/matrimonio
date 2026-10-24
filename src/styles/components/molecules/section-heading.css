@@ -1,15 +1,19 @@
 .section-heading {
-  @apply mb-10 flex flex-col items-center gap-3 text-center;
+  @apply mb-8 flex flex-col items-center gap-3 text-center;
 }
 
 .section-heading__title {
-  @apply font-display text-3xl text-foreground md:text-4xl;
+  @apply font-display text-ink text-[2rem] leading-tight sm:text-4xl;
 }
 
 .section-heading__subtitle {
-  @apply max-w-md text-base text-muted-foreground;
+  @apply text-ink-muted max-w-sm text-base italic;
 }
 
-.section-heading__ornament {
-  @apply mt-2;
+.section-heading--sky .section-heading__title {
+  @apply text-foil-bright;
+}
+
+.section-heading--sky .section-heading__subtitle {
+  @apply text-ivory/85;
 }

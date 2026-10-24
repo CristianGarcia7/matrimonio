@@ -1,0 +1,77 @@
+.invitation-cover {
+  @apply bg-midnight fixed inset-0 isolate z-50 flex overflow-y-auto overscroll-contain;
+  transition:
+    opacity 700ms ease 1500ms,
+    visibility 0s linear 2200ms;
+}
+
+.invitation-cover[data-state='opening'] {
+  @apply invisible opacity-0;
+}
+
+.invitation-cover__stage {
+  @apply m-auto flex w-full max-w-md flex-col items-center gap-8 px-6 py-10 text-center;
+}
+
+.invitation-cover__envelope {
+  @apply max-w-[20rem] sm:max-w-[22rem];
+}
+
+.invitation-cover__card-eyebrow {
+  @apply text-gold-deep text-[0.6rem] tracking-[0.4em] uppercase;
+}
+
+.invitation-cover__card-monogram {
+  @apply font-script text-ink text-5xl leading-tight;
+}
+
+.invitation-cover__card-ampersand {
+  @apply text-hydrangea-deep mx-1 text-[0.6em];
+}
+
+.invitation-cover__text {
+  @apply flex flex-col items-center gap-3;
+}
+
+.invitation-cover__names {
+  @apply font-display text-foil-bright text-[2.5rem] leading-[1.1] text-balance sm:text-5xl;
+}
+
+.invitation-cover__date {
+  @apply text-ivory/90 text-xs tracking-[0.3em] uppercase;
+}
+
+.invitation-cover__greeting {
+  @apply font-script text-hydrangea text-3xl;
+}
+
+.invitation-cover__text,
+.invitation-cover__button {
+  transition:
+    opacity 400ms ease,
+    translate 400ms ease;
+}
+
+.invitation-cover[data-state='opening'] .invitation-cover__text,
+.invitation-cover[data-state='opening'] .invitation-cover__button {
+  @apply translate-y-2 opacity-0;
+}
+
+.invitation-cover__button {
+  @apply border-gold bg-gold/10 text-gold inline-flex min-h-12 items-center justify-center rounded-full border px-9 text-xs tracking-[0.3em] uppercase transition-colors;
+  @apply hover:bg-gold hover:text-navy focus-visible:outline-gold focus-visible:outline-2 focus-visible:outline-offset-4;
+}
+
+/* Without JavaScript the envelope could never open: show the page instead. */
+@media (scripting: none) {
+  .invitation-cover {
+    @apply hidden;
+  }
+}
+
+/* Lock page scroll while the cover is mounted (works before hydration). */
+@media (scripting: enabled) {
+  html:has(.invitation-cover) {
+    @apply overflow-hidden;
+  }
+}

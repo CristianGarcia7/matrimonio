@@ -1,7 +1,0 @@
-.events-section {
-  @apply bg-champagne/40 px-6 py-20;
-}
-
-.events-section__grid {
-  @apply mx-auto grid max-w-4xl gap-6 md:grid-cols-2;
-}

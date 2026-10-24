@@ -1,9 +1,5 @@
-.blessing-section {
-  @apply bg-accent/50 px-6 py-20;
-}
-
 .blessing-section__grid {
-  @apply mx-auto grid max-w-3xl gap-10 text-center md:grid-cols-2;
+  @apply grid gap-8 text-center sm:grid-cols-2;
 }
 
 .parents-group {
@@ -11,11 +7,11 @@
 }
 
 .parents-group__label {
-  @apply text-xs font-medium tracking-[0.25em] text-muted-foreground uppercase;
+  @apply text-gold-deep text-[0.7rem] tracking-[0.3em] uppercase;
 }
 
 .parents-group__names {
-  @apply font-display text-2xl leading-snug text-foreground;
+  @apply font-display text-ink text-2xl leading-snug;
 }
 
 .parents-group__name {
@@ -23,5 +19,5 @@
 }
 
 .parents-group__conjunction {
-  @apply block font-script text-xl text-primary;
+  @apply font-script text-hydrangea-deep block text-2xl;
 }

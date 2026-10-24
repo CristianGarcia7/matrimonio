@@ -1,0 +1,32 @@
+.music-player {
+  @apply border-gold/80 bg-navy/85 text-gold fixed right-4 z-40 grid size-12 place-items-center rounded-full border backdrop-blur-sm transition-colors;
+  @apply hover:bg-deep-blue focus-visible:outline-gold focus-visible:outline-2 focus-visible:outline-offset-4;
+  bottom: max(1rem, env(safe-area-inset-bottom));
+  box-shadow:
+    0 0 0 4px rgb(4 18 42 / 0.55),
+    0 10px 24px -8px rgb(0 0 0 / 0.7);
+}
+
+.music-player__bars {
+  @apply flex h-4 items-end gap-[3px];
+}
+
+.music-player__bar {
+  @apply h-1/3 w-[3px] rounded-full bg-current opacity-70;
+}
+
+.music-player--playing .music-player__bar {
+  @apply opacity-100;
+}
+
+.music-player--playing .music-player__bar--low {
+  @apply h-1/2;
+}
+
+.music-player--playing .music-player__bar--high {
+  @apply h-full;
+}
+
+.music-player--playing .music-player__bar--mid {
+  @apply h-3/4;
+}

@@ -1,13 +1,14 @@
 .ornament-divider {
-  @apply mx-auto block h-6 w-48 text-primary;
+  @apply mx-auto block h-6 w-52;
 }
 
 .ornament-divider__line {
-  @apply stroke-current;
-  stroke-width: 1;
+  fill: none;
+  stroke: var(--ornament-line);
+  stroke-width: 0.8;
+  stroke-linecap: round;
 }
 
-.ornament-divider__leaf,
 .ornament-divider__dot {
-  @apply fill-current;
+  fill: var(--ornament-line);
 }

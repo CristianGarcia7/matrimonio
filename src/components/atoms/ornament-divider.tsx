@@ -1,5 +1,7 @@
 import { cn } from '@/lib/utils';
 
+import { HydrangeaFloret } from './hydrangea-floret';
+
 interface OrnamentDividerProps {
   className?: string;
 }
@@ -13,16 +15,16 @@ export function OrnamentDivider({ className }: OrnamentDividerProps) {
       aria-hidden="true"
       focusable="false"
     >
+      <path className="ornament-divider__line" d="M6 12h88M146 12h88" />
       <path
         className="ornament-divider__line"
-        d="M4 12h86M150 12h86"
-        fill="none"
+        d="M94 12c4-5 8-6 12-5M94 12c4 5 8 6 12 5M146 12c-4-5-8-6-12-5M146 12c-4 5-8 6-12 5"
       />
-      <path
-        className="ornament-divider__leaf"
-        d="M96 12c6-7 14-9 22-5-6 1-11 3-14 5 3 2 8 4 14 5-8 4-16 2-22-5ZM144 12c-6-7-14-9-22-5 6 1 11 3 14 5-3 2-8 4-14 5 8 4 16 2 22-5Z"
-      />
-      <circle className="ornament-divider__dot" cx="120" cy="12" r="3" />
+      <circle className="ornament-divider__dot" cx="6" cy="12" r="1.4" />
+      <circle className="ornament-divider__dot" cx="234" cy="12" r="1.4" />
+      <HydrangeaFloret x={120} y={12} rotation={45} scale={1.5} />
+      <HydrangeaFloret x={110} y={12} scale={0.7} />
+      <HydrangeaFloret x={130} y={12} scale={0.7} />
     </svg>
   );
 }

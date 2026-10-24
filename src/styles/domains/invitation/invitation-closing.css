@@ -1,11 +1,24 @@
 .invitation-closing {
-  @apply flex flex-col items-center gap-4 px-6 pt-10 pb-16 text-center;
+  @apply mx-auto flex max-w-md flex-col items-center gap-5 px-6 pt-12 pb-28 text-center;
+}
+
+.invitation-closing__thanks {
+  @apply font-display text-foil-bright text-3xl leading-tight text-balance;
 }
 
 .invitation-closing__message {
-  @apply max-w-md font-display text-xl text-foreground italic md:text-2xl;
+  @apply text-ivory/85 max-w-xs text-base italic;
 }
 
 .invitation-closing__signature {
-  @apply font-script text-3xl text-primary;
+  @apply font-script text-gold text-4xl;
+}
+
+.invitation-closing__credit {
+  @apply text-hydrangea/80 mt-6 max-w-sm text-[0.7rem] leading-relaxed;
+  overflow-wrap: anywhere;
+}
+
+.invitation-closing__credit-link {
+  @apply decoration-hydrangea/50 hover:text-ivory underline underline-offset-2;
 }

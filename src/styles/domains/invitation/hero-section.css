@@ -1,45 +1,37 @@
 .hero-section {
-  @apply relative isolate flex min-h-svh flex-col items-center justify-center gap-5 overflow-hidden px-6 py-20 text-center;
-  background-image:
-    radial-gradient(
-      ellipse 60% 45% at 15% 10%,
-      color-mix(in oklch, var(--rose) 55%, transparent),
-      transparent 70%
-    ),
-    radial-gradient(
-      ellipse 55% 40% at 85% 90%,
-      color-mix(in oklch, var(--sage) 35%, transparent),
-      transparent 70%
-    ),
-    linear-gradient(180deg, var(--ivory), var(--champagne));
+  @apply flex min-h-svh items-center px-4 py-8;
 }
 
-/* Thin gold frame that evokes a printed invitation card. */
-.hero-section::before {
-  @apply pointer-events-none absolute inset-4 -z-10 rounded-[2rem] border border-gold/40 md:inset-8;
-  content: '';
+.hero-section__content {
+  @apply flex flex-col items-center gap-4 text-center;
 }
 
 .hero-section__eyebrow {
-  @apply text-xs font-medium tracking-[0.3em] text-muted-foreground uppercase;
+  @apply text-gold-deep mt-2 text-xs tracking-[0.4em] uppercase;
 }
 
 .hero-section__names {
-  @apply flex flex-col items-center font-display text-5xl leading-tight font-medium text-foreground md:text-7xl;
+  @apply font-display flex flex-col items-center text-[3.25rem] leading-[1.05] sm:text-6xl;
+}
+
+/* Foil is applied per name: background-clip on the heading would also paint
+   the visually hidden ampersand used for screen readers. */
+.hero-section__name {
+  @apply text-foil-deep;
 }
 
 .hero-section__ampersand {
-  @apply my-1 font-script text-5xl leading-none text-primary md:text-7xl;
+  @apply font-script text-hydrangea-deep my-2 text-6xl leading-none sm:text-7xl;
 }
 
 .hero-section__full-names {
-  @apply text-sm tracking-wide text-muted-foreground;
+  @apply text-ink-muted max-w-xs text-[0.7rem] leading-relaxed tracking-[0.2em] uppercase;
 }
 
 .hero-section__date {
-  @apply font-display text-xl tracking-wide text-foreground md:text-2xl;
+  @apply font-display text-ink text-2xl;
 }
 
 .hero-section__invitation {
-  @apply max-w-xl text-base leading-relaxed text-muted-foreground md:text-lg;
+  @apply text-ink-muted max-w-sm text-base leading-relaxed italic;
 }

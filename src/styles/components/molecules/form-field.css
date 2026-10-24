@@ -3,9 +3,9 @@
 }
 
 .form-field__label {
-  @apply text-sm font-medium tracking-wide text-foreground;
+  @apply text-ink text-xs tracking-[0.2em] uppercase;
 }
 
 .form-field__error {
-  @apply text-sm text-destructive;
+  @apply text-destructive text-sm;
 }

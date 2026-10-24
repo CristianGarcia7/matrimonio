@@ -1,8 +1,8 @@
 import type { Metadata, Viewport } from 'next';
 import {
-  Cormorant_Garamond as cormorantGaramond,
-  Great_Vibes as greatVibes,
-  Jost as jost
+  Lora as lora,
+  Pinyon_Script as pinyonScript,
+  Viaoda_Libre as viaodaLibre
 } from 'next/font/google';
 
 import { siteConfig } from '@/config/site';
@@ -10,24 +10,24 @@ import { cn } from '@/lib/utils';
 
 import './globals.css';
 
-const displayFont = cormorantGaramond({
-  variable: '--font-cormorant',
-  subsets: ['latin'],
-  weight: ['400', '500', '600'],
-  style: ['normal', 'italic'],
-  display: 'swap'
-});
-
-const scriptFont = greatVibes({
-  variable: '--font-great-vibes',
+const displayFont = viaodaLibre({
+  variable: '--font-viaoda',
   subsets: ['latin'],
   weight: '400',
   display: 'swap'
 });
 
-const bodyFont = jost({
-  variable: '--font-jost',
+const scriptFont = pinyonScript({
+  variable: '--font-pinyon',
   subsets: ['latin'],
+  weight: '400',
+  display: 'swap'
+});
+
+const bodyFont = lora({
+  variable: '--font-lora',
+  subsets: ['latin'],
+  style: ['normal', 'italic'],
   display: 'swap'
 });
 

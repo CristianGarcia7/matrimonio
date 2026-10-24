@@ -1,23 +1,31 @@
-.event-card {
-  @apply flex flex-col items-center gap-2 rounded-2xl border border-border bg-card px-6 py-10 text-center shadow-sm shadow-gold/10;
+.events-section__list {
+  @apply grid gap-6;
+}
+
+.event-card .paper-card__content {
+  @apply px-5 py-12 sm:px-10;
+}
+
+.event-card__body {
+  @apply flex flex-col items-center gap-2 text-center;
 }
 
 .event-card__title {
-  @apply font-display text-2xl text-foreground md:text-3xl;
+  @apply font-display text-ink text-[1.75rem] leading-tight sm:text-3xl;
 }
 
 .event-card__time {
-  @apply font-display text-xl text-primary lining-nums;
+  @apply font-display text-foil-deep text-4xl;
 }
 
 .event-card__venue {
-  @apply text-base font-medium text-foreground;
+  @apply text-ink mt-1 text-sm font-semibold tracking-[0.15em] uppercase;
 }
 
 .event-card__place {
-  @apply text-sm text-muted-foreground;
+  @apply text-ink-muted text-sm italic;
 }
 
-.event-card__actions {
-  @apply mt-4 flex flex-col items-center gap-3 sm:flex-row sm:justify-center;
+.event-card__map {
+  @apply mt-4 mb-3;
 }

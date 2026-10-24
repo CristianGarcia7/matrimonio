@@ -1,9 +1,13 @@
-import { ExternalLink } from '@/components/atoms/external-link';
 import { SectionHeading } from '@/components/molecules/section-heading';
 
-import { buildCeremonyCalendarUrl } from '../../calendar-link.util';
+import { buildMapEmbedUrl } from '../../map-embed.util';
 import { invitationMessages } from '../../messages';
-import { CEREMONY_MAPS_URL, RECEPTION_MAPS_URL } from '../../wedding-details';
+import {
+  CEREMONY_COORDINATES,
+  CEREMONY_MAPS_URL,
+  RECEPTION_COORDINATES,
+  RECEPTION_MAPS_URL
+} from '../../wedding-details';
 import { EventCard } from '../molecules/event-card';
 
 export function EventsSection() {
@@ -11,13 +15,14 @@ export function EventsSection() {
   const { ceremony, reception } = events;
 
   return (
-    <section className="events-section" aria-labelledby="events-title">
+    <section className="invitation-section" aria-labelledby="events-title">
       <SectionHeading
         id="events-title"
         title={events.title}
         subtitle={events.subtitle}
+        isOnSky
       />
-      <div className="events-section__grid">
+      <div className="events-section__list">
         <EventCard
           title={ceremony.title}
           venue={ceremony.venue}
@@ -27,15 +32,9 @@ export function EventsSection() {
           mapsUrl={CEREMONY_MAPS_URL}
           mapsLinkLabel={events.mapsLinkLabel}
           mapsLinkAriaLabel={events.mapsLinkAriaLabel(ceremony.venue)}
-        >
-          <ExternalLink
-            href={buildCeremonyCalendarUrl()}
-            ariaLabel={events.calendarLinkAriaLabel}
-            isSubtle
-          >
-            {events.calendarLinkLabel}
-          </ExternalLink>
-        </EventCard>
+          mapEmbedUrl={buildMapEmbedUrl(CEREMONY_COORDINATES)}
+          mapTitle={events.mapTitle(ceremony.venue)}
+        />
         <EventCard
           title={reception.title}
           venue={reception.venue}
@@ -44,6 +43,8 @@ export function EventsSection() {
           mapsUrl={RECEPTION_MAPS_URL}
           mapsLinkLabel={events.mapsLinkLabel}
           mapsLinkAriaLabel={events.mapsLinkAriaLabel(reception.venue)}
+          mapEmbedUrl={buildMapEmbedUrl(RECEPTION_COORDINATES)}
+          mapTitle={events.mapTitle(reception.venue)}
         />
       </div>
     </section>

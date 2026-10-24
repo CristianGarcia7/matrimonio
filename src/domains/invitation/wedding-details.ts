@@ -12,3 +12,21 @@ export const RECEPTION_MAPS_URL = 'https://maps.app.goo.gl/as6DKxtiJbeW5HTV9';
 export const CALENDAR_EVENT_DATES = '20270109T223000Z/20270110T043000Z';
 
 export const CALENDAR_TIME_ZONE = 'America/Bogota';
+
+// Venue coordinates used for the embedded maps (no API key required).
+export const CEREMONY_COORDINATES = {
+  latitude: 4.628197,
+  longitude: -74.197037
+};
+
+export const RECEPTION_COORDINATES = {
+  latitude: 4.6250383,
+  longitude: -74.1935744
+};
+
+// Self-hosted background music (Kevin MacLeod, CC BY 3.0; see README).
+export const BACKGROUND_MUSIC_SRC = '/audio/canon-in-d.mp3';
+
+export const MUSIC_AUTHOR_URL = 'https://incompetech.com';
+
+export const MUSIC_LICENSE_URL = 'http://creativecommons.org/licenses/by/3.0/';

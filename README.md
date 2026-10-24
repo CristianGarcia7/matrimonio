@@ -196,6 +196,16 @@ pm2 startup                      # once: run the printed command to start on boo
 while the app runs, or `pm2 stop wedding-invitation` before copying the file
 (together with any `-wal`/`-shm` files).
 
+### Background music
+
+The invitation plays `public/audio/canon-in-d.mp3` once a guest opens the
+envelope: "Canon in D Major" (Johann Pachelbel), performed and arranged by
+Kevin MacLeod ([incompetech.com](https://incompetech.com)), from Wikimedia
+Commons (`File:Canon_in_D_Major_(ISRC_USUAN1100301).mp3`). It is licensed under
+[Creative Commons: Attribution 3.0](http://creativecommons.org/licenses/by/3.0/);
+the required attribution is shown in the page footer. If the file is missing,
+the player stays hidden and the page works normally.
+
 ---
 
 ## ✨ Features

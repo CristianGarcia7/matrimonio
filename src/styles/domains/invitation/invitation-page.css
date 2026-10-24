@@ -1,0 +1,21 @@
+.invitation-page__main {
+  @apply mx-auto flex w-full max-w-[40rem] flex-col;
+}
+
+/* Programmatic focus target after the cover opens; not interactive. */
+.invitation-page__main:focus {
+  @apply outline-none;
+}
+
+.invitation-section {
+  @apply px-4 py-6 sm:py-10;
+}
+
+/* Sky contexts use brighter ornament tones for legibility on navy. */
+.section-heading--sky,
+.invitation-cover,
+.invitation-closing {
+  --ornament-line: var(--gold);
+  --ornament-petal: color-mix(in oklab, var(--hydrangea) 35%, transparent);
+  --ornament-petal-stroke: var(--hydrangea);
+}

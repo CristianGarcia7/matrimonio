@@ -15,6 +15,7 @@ export function GuestbookSection() {
         id="guestbook-title"
         title={section.title}
         subtitle={section.subtitle}
+        isOnSky
       />
       <div className="guestbook-section__layout">
         <GuestbookForm />

@@ -1,0 +1,30 @@
+.botanical-sprig {
+  fill: none;
+}
+
+.botanical-sprig__stem {
+  fill: none;
+  stroke: var(--ornament-line);
+  stroke-width: 0.9;
+  stroke-linecap: round;
+}
+
+.botanical-sprig__leaf {
+  fill: color-mix(in oklab, var(--gold) 16%, transparent);
+  stroke: var(--ornament-line);
+  stroke-width: 0.7;
+}
+
+.botanical-sprig__berry {
+  fill: var(--ornament-line);
+}
+
+.hydrangea-floret__petals {
+  fill: var(--ornament-petal);
+  stroke: var(--ornament-petal-stroke);
+  stroke-width: 0.45;
+}
+
+.hydrangea-floret__center {
+  fill: var(--ornament-line);
+}
