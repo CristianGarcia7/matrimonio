@@ -95,7 +95,7 @@ export const invitationMessages = {
     thanks: 'Gracias por ser parte de nuestra historia',
     signature: 'Jose Ignacio & Patricia',
     backdropCredit:
-      'Ilustraciones: Christian Jank, diseño del castillo de Neuschwanstein (1869), y acuarelas de Pierre-Joseph Redouté; dominio público, vía Wikimedia Commons.'
+      'Ilustraciones: fotocromo del castillo de Neuschwanstein (Detroit Publishing Co., Biblioteca del Congreso) y acuarelas de Pierre-Joseph Redouté; dominio público, vía Wikimedia Commons.'
   },
   music: {
     songTitle: 'Canon in D Major',

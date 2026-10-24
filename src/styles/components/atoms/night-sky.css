@@ -18,28 +18,25 @@
   @apply absolute;
 }
 
-/* Christian Jank's 1869 Neuschwanstein drawing (public domain), turned into a
-   powder-blue pencil sketch on black: screen blending drops the black into the
-   navy and leaves only faint moonlit lines rising from the bottom edge. */
+/* Library of Congress photochrom of Neuschwanstein (public domain), toned
+   ivory/powder blue with a transparent sky: screen blending lets the starry
+   navy show through, and the mask fades its top into the stars. */
 .night-sky__castle {
-  @apply absolute inset-x-0 bottom-0 bg-no-repeat opacity-20 mix-blend-screen;
-  aspect-ratio: 1880 / 1032;
-  min-height: 58%;
-  max-height: 92%;
-  background-image: url('/images/neuschwanstein-sketch-900.webp');
-  background-size: cover;
-  /* Keeps the main towers in frame when narrow screens crop the sides. */
-  background-position: 60% 100%;
-  mask-image: linear-gradient(to top, #000 35%, transparent 95%);
+  @apply absolute inset-x-0 top-[28%] -bottom-[18%] bg-cover bg-no-repeat opacity-20 mix-blend-screen;
+  background-image: url('/images/neuschwanstein-photochrom-900.webp');
+  /* Castle kept right of centre when narrow screens crop the sides; the
+     faded forest runs off the bottom edge. */
+  background-position: 62% 0%;
+  mask-image: linear-gradient(to bottom, transparent, #000 22%);
 }
 
 .night-sky--vivid .night-sky__castle {
-  @apply opacity-25;
+  @apply opacity-30;
 }
 
 @media (min-width: 48rem) {
   .night-sky__castle {
-    background-image: url('/images/neuschwanstein-sketch-1600.webp');
+    background-image: url('/images/neuschwanstein-photochrom-1600.webp');
   }
 }
 

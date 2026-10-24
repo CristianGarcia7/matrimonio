@@ -8,7 +8,7 @@ interface NightSkyProps {
   className?: string;
 }
 
-// Decorative starry backdrop, painted back to front: a faint pencil-sketch
+// Decorative starry backdrop, painted back to front: a faint moonlit
 // castle rising from the bottom, oversized watercolor florals, a stationery
 // grain and the gold star dust. Static CSS layers only, no canvas or animation.
 export function NightSky({

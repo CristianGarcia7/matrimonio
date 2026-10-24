@@ -208,11 +208,12 @@ the player stays hidden and the page works normally.
 
 ### Assets & licenses
 
-- Background: Christian Jank, design for Neuschwanstein Castle (1869), public
-  domain, via Wikimedia Commons
-  (`File:Christian Jank - Entwurf von Schloss Neuschwanstein 1869 restored bw.jpg`).
-  Processed into a powder-blue pencil sketch on black
-  (`public/images/neuschwanstein-sketch-1600.webp`, `neuschwanstein-sketch-900.webp`).
+- Background: Photochrom print of Neuschwanstein Castle (c. 1890–1900), Detroit
+  Publishing Co. / Library of Congress, public domain, via Wikimedia Commons
+  (`File:Neuschwanstein Castle LOC print rotated.jpg`). Desaturated, toned
+  ivory/powder blue with a soft glow, sky keyed to transparency and the forest
+  faded out (`public/images/neuschwanstein-photochrom-1600.webp`,
+  `neuschwanstein-photochrom-900.webp`, a portrait crop centred on the castle).
 - Watercolor florals: Pierre-Joseph Redouté, public domain, via Wikimedia
   Commons — `File:Redoute - Rosa centifolia foliacea.jpg` (*Les Roses*) and
   `File:T3 24 Hortensia opuloides par Pierre-Joseph Redouté.jpeg`. Cropped, paper
