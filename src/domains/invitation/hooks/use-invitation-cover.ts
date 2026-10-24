@@ -10,8 +10,11 @@ import {
 import { INVITATION_COVER_STATE } from '../types/invitation-cover-state.types';
 import type { InvitationCoverState } from '../types/invitation-cover-state.types';
 
-// Must match the envelope + fade-out timeline in invitation-cover.css.
-const OPENING_DURATION_MS = 2200;
+// Must match the envelope + dissolve timeline in envelope.css and
+// invitation-cover.css (cover visibility flips at 2500ms).
+const OPENING_DURATION_MS = 2550;
+// Reduced motion skips the choreography and only fades the cover.
+const REDUCED_OPENING_DURATION_MS = 450;
 const REDUCED_MOTION_QUERY = '(prefers-reduced-motion: reduce)';
 
 function prefersReducedMotion(): boolean {
@@ -27,6 +30,7 @@ export function useInvitationCover({ onOpen }: UseInvitationCoverOptions = {}) {
     INVITATION_COVER_STATE.CLOSED
   );
   const openButtonRef = useRef<HTMLButtonElement>(null);
+  const openingDurationRef = useRef(OPENING_DURATION_MS);
   const isClosed = coverState === INVITATION_COVER_STATE.CLOSED;
   const isOpened = coverState === INVITATION_COVER_STATE.OPENED;
 
@@ -37,11 +41,10 @@ export function useInvitationCover({ onOpen }: UseInvitationCoverOptions = {}) {
     window.dispatchEvent(new CustomEvent(INVITATION_OPENED_EVENT));
     onOpen?.();
 
-    setCoverState(
-      prefersReducedMotion()
-        ? INVITATION_COVER_STATE.OPENED
-        : INVITATION_COVER_STATE.OPENING
-    );
+    openingDurationRef.current = prefersReducedMotion()
+      ? REDUCED_OPENING_DURATION_MS
+      : OPENING_DURATION_MS;
+    setCoverState(INVITATION_COVER_STATE.OPENING);
   };
 
   const handleEscapeKey = useEffectEvent((event: KeyboardEvent) => {
@@ -73,7 +76,7 @@ export function useInvitationCover({ onOpen }: UseInvitationCoverOptions = {}) {
     if (coverState !== INVITATION_COVER_STATE.OPENING) return;
     const timeoutId = window.setTimeout(
       () => setCoverState(INVITATION_COVER_STATE.OPENED),
-      OPENING_DURATION_MS
+      openingDurationRef.current
     );
     return () => window.clearTimeout(timeoutId);
   }, [coverState]);

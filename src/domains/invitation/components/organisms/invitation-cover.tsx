@@ -9,6 +9,8 @@ import { useInvitationCover } from '../../hooks/use-invitation-cover';
 import { invitationMessages } from '../../messages';
 import { CEREMONY_START_ISO } from '../../wedding-details';
 
+const PETAL_KEYS = Array.from({ length: 8 }, (_, index) => index);
+
 interface InvitationCoverProps {
   onOpen?: () => void;
 }
@@ -36,6 +38,11 @@ export function InvitationCover({ onOpen }: InvitationCoverProps) {
       aria-label={cover.dialogAriaLabel}
     >
       <NightSky isContained isBackdropVivid />
+      <span className="invitation-cover__petals" aria-hidden="true">
+        {PETAL_KEYS.map(key => (
+          <span key={key} className="invitation-cover__petal" />
+        ))}
+      </span>
       <div className="invitation-cover__stage">
         <Envelope
           isOpen={isEnvelopeOpen}
@@ -46,6 +53,7 @@ export function InvitationCover({ onOpen }: InvitationCoverProps) {
               secondInitial={monogram.secondInitial}
               ampersand={monogram.ampersand}
               ariaLabel={monogram.ariaLabel}
+              className="invitation-cover__seal"
             />
           }
         >
@@ -56,6 +64,9 @@ export function InvitationCover({ onOpen }: InvitationCoverProps) {
               {monogram.ampersand}
             </span>
             {monogram.secondInitial}
+          </span>
+          <span className="invitation-cover__card-names" aria-hidden="true">
+            {cover.names}
           </span>
         </Envelope>
         <div className="invitation-cover__text">

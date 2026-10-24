@@ -1,8 +1,9 @@
 .invitation-cover {
-  @apply bg-midnight fixed inset-0 isolate z-50 flex overflow-y-auto overscroll-contain;
+  @apply bg-midnight fixed inset-0 isolate z-50 flex overflow-x-hidden overflow-y-auto overscroll-contain;
+  /* Dissolve once the card has risen; keep in sync with the hook timeline. */
   transition:
-    opacity 700ms ease 1500ms,
-    visibility 0s linear 2200ms;
+    opacity 750ms ease 1750ms,
+    visibility 0s linear 2500ms;
 }
 
 .invitation-cover[data-state='opening'] {
@@ -10,11 +11,47 @@
 }
 
 .invitation-cover__stage {
-  @apply m-auto flex w-full max-w-md flex-col items-center gap-8 px-6 py-10 text-center;
+  @apply m-auto flex w-full max-w-md flex-col items-center gap-8 px-6 pt-24 pb-10 text-center;
 }
 
+/* Sized by the smaller of width and height so it never overflows on phones
+   and never looks tiny on desktops; the top padding leaves room for the card
+   rising out of the envelope. */
 .invitation-cover__envelope {
-  @apply max-w-[20rem] sm:max-w-[22rem];
+  @apply max-w-none;
+  width: clamp(15rem, min(84vw, 58svh * 1.4), 27rem);
+}
+
+/* While opening, the envelope settles lower so the open flap and the rising
+   card stay inside the viewport. */
+@media (prefers-reduced-motion: no-preference) {
+  .invitation-cover__envelope {
+    transition: translate 900ms cubic-bezier(0.4, 0, 0.2, 1) 250ms;
+  }
+
+  .invitation-cover[data-state='opening'] .invitation-cover__envelope {
+    @apply translate-y-1/4;
+  }
+}
+
+.invitation-cover__card-names {
+  @apply font-display text-ink mt-1 text-[clamp(0.7rem,2.6vw,0.95rem)] tracking-[0.18em] uppercase;
+}
+
+/* Low landscape phones: envelope beside the text instead of above it. */
+@media (orientation: landscape) and (max-height: 32rem) {
+  .invitation-cover__stage {
+    @apply grid max-w-4xl grid-cols-2 items-center gap-x-10 gap-y-4 py-6 pt-20;
+  }
+
+  .invitation-cover__envelope {
+    @apply row-span-2;
+    width: min(42vw, 52svh * 1.4);
+  }
+
+  .invitation-cover__names {
+    @apply text-4xl;
+  }
 }
 
 .invitation-cover__card-eyebrow {
@@ -22,7 +59,16 @@
 }
 
 .invitation-cover__card-monogram {
-  @apply font-script text-ink text-5xl leading-tight;
+  @apply font-script text-ink text-[clamp(2rem,12cqi,3.25rem)] leading-tight;
+}
+
+/* The wax seal scales with the envelope (its container) on every screen. */
+.invitation-cover__seal {
+  @apply size-[clamp(3.75rem,22cqi,5.75rem)];
+}
+
+.invitation-cover__seal .wax-seal__monogram {
+  @apply text-[clamp(1.5rem,8.5cqi,2.25rem)];
 }
 
 .invitation-cover__card-ampersand {
@@ -55,6 +101,89 @@
 .invitation-cover[data-state='opening'] .invitation-cover__text,
 .invitation-cover[data-state='opening'] .invitation-cover__button {
   @apply translate-y-2 opacity-0;
+}
+
+/* Gold petals drifting down while the cover dissolves. */
+.invitation-cover__petals {
+  @apply pointer-events-none absolute inset-0 overflow-hidden;
+}
+
+.invitation-cover__petal {
+  @apply absolute -top-8 size-3 opacity-0;
+  border-radius: 80% 0 80% 0;
+  background-image: linear-gradient(135deg, #f7e7b4, #d4b06a 55%, #a07c3a);
+}
+
+.invitation-cover__petal:nth-child(1) {
+  @apply left-[8%];
+  --petal-drift: 3rem;
+  --petal-delay: 1150ms;
+}
+.invitation-cover__petal:nth-child(2) {
+  @apply left-[22%] size-2;
+  --petal-drift: -2rem;
+  --petal-delay: 1350ms;
+}
+.invitation-cover__petal:nth-child(3) {
+  @apply left-[36%];
+  --petal-drift: 4rem;
+  --petal-delay: 1250ms;
+}
+.invitation-cover__petal:nth-child(4) {
+  @apply left-[50%] size-2.5;
+  --petal-drift: -3rem;
+  --petal-delay: 1450ms;
+}
+.invitation-cover__petal:nth-child(5) {
+  @apply left-[63%];
+  --petal-drift: 2.5rem;
+  --petal-delay: 1200ms;
+}
+.invitation-cover__petal:nth-child(6) {
+  @apply left-[76%] size-2;
+  --petal-drift: -4rem;
+  --petal-delay: 1400ms;
+}
+.invitation-cover__petal:nth-child(7) {
+  @apply left-[88%];
+  --petal-drift: -2.5rem;
+  --petal-delay: 1300ms;
+}
+.invitation-cover__petal:nth-child(8) {
+  @apply left-[44%] size-2;
+  --petal-drift: 5rem;
+  --petal-delay: 1550ms;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .invitation-cover[data-state='opening'] .invitation-cover__petal {
+    will-change: transform, opacity;
+    animation: invitation-cover-petal-fall 1350ms cubic-bezier(0.3, 0, 0.6, 1)
+      var(--petal-delay) both;
+  }
+}
+
+@keyframes invitation-cover-petal-fall {
+  0% {
+    transform: translate(0, 0) rotate(0deg);
+    opacity: 0;
+  }
+  15% {
+    opacity: 0.95;
+  }
+  100% {
+    transform: translate(var(--petal-drift), 70svh) rotate(260deg);
+    opacity: 0;
+  }
+}
+
+/* Reduced motion: no envelope choreography, just a short fade. */
+@media (prefers-reduced-motion: reduce) {
+  .invitation-cover {
+    transition:
+      opacity 400ms ease,
+      visibility 0s linear 400ms;
+  }
 }
 
 .invitation-cover__button {
