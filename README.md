@@ -20,6 +20,7 @@
 - [Overview](#-overview)
 - [Quick Start](#-quick-start)
 - [Docker](#-docker)
+- [Deploy (PM2)](#deploy-pm2)
 - [Features](#-features)
 - [Architecture](#-architecture)
 - [Tech Stack](#-tech-stack)
@@ -160,6 +161,40 @@ you set in `APP_PORT`).
 - **`.dockerignore`** excludes `node_modules`, build output, local env files,
   and VCS/tooling directories from the build context.
 - Telemetry is disabled with `NEXT_TELEMETRY_DISABLED=1`.
+- Guestbook signatures live in the SQLite file at `GUESTBOOK_DB_PATH`
+  (`/app/data/guestbook.db`), persisted in the `guestbook-data` named volume.
+
+---
+
+## Deploy (PM2)
+
+The production target is a single AWS instance running the app with PM2.
+Guestbook signatures are stored in SQLite through Node's built-in `node:sqlite`,
+so no native build step is needed.
+
+- **Node.js 24** is required (`node:sqlite`), plus pnpm and PM2 (`npm i -g pm2`).
+- `ecosystem.config.cjs` runs **one** `next start` process on port 3000: the
+  guestbook rate limiter is in memory and SQLite expects a single writer.
+- The database lives outside the release directory
+  (`GUESTBOOK_DB_PATH=/var/lib/wedding-invitation/guestbook.db`), so redeploys
+  never wipe signatures. Locally it defaults to `data/guestbook.db`.
+
+```bash
+# One-time: database directory owned by the user that runs PM2
+sudo mkdir -p /var/lib/wedding-invitation
+sudo chown "$USER":"$USER" /var/lib/wedding-invitation
+
+# Each release
+pnpm install --frozen-lockfile && pnpm build
+pm2 start ecosystem.config.cjs   # or `pm2 reload wedding-invitation` on redeploys
+pm2 save
+pm2 startup                      # once: run the printed command to start on boot
+```
+
+**Backups**: copy the `.db` file. Either use
+`sqlite3 /var/lib/wedding-invitation/guestbook.db ".backup guestbook-backup.db"`
+while the app runs, or `pm2 stop wedding-invitation` before copying the file
+(together with any `-wal`/`-shm` files).
 
 ---
 

@@ -1,7 +1,7 @@
 # syntax=docker/dockerfile:1
 
 # ---------------------------------------------------------------------------
-# Next.js starter template — production image
+# Wedding invitation — production image
 #
 # Multi-stage build: dependencies -> build -> runner.
 # The application is served with `next start` (no `output: 'standalone'` is
@@ -33,6 +33,8 @@ RUN apk add --no-cache libc6-compat
 WORKDIR /app
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
+# `public/` is optional in the repository; guarantee it exists for the runner.
+RUN mkdir -p public
 ENV NEXT_TELEMETRY_DISABLED=1
 RUN pnpm build
 
@@ -52,6 +54,11 @@ RUN pnpm install --frozen-lockfile --prod --ignore-scripts
 # Run as a non-root user.
 RUN addgroup --system --gid 1001 nodejs \
     && adduser --system --uid 1001 nextjs
+
+# Guestbook SQLite database directory. A named volume mounted here inherits
+# this ownership on first use, so the non-root user can write signatures.
+RUN mkdir -p /app/data && chown nextjs:nodejs /app/data
+ENV GUESTBOOK_DB_PATH=/app/data/guestbook.db
 
 # Copy the build output and static assets.
 COPY --from=builder --chown=nextjs:nodejs /app/public ./public

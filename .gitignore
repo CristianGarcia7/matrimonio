@@ -133,5 +133,5 @@ $RECYCLE.BIN/
 
 .atl/
 
-# Guestbook local JSON store (runtime data, never committed)
+# Guestbook local SQLite database (runtime data, never committed)
 data/

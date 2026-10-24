@@ -2,8 +2,8 @@ services:
   app:
     build:
       context: .
-    image: nextjs-starter:latest
-    container_name: nextjs-starter
+    image: wedding-invitation:latest
+    container_name: wedding-invitation
     restart: unless-stopped
     # Runs tini as PID 1 for correct signal handling and process reaping.
     init: true
@@ -12,6 +12,10 @@ services:
     environment:
       NODE_ENV: production
       PORT: '3000'
+      GUESTBOOK_DB_PATH: /app/data/guestbook.db
+    volumes:
+      # Persists guestbook signatures (SQLite) across container rebuilds.
+      - guestbook-data:/app/data
     healthcheck:
       test:
         [
@@ -24,3 +28,6 @@ services:
       timeout: 10s
       retries: 3
       start_period: 15s
+
+volumes:
+  guestbook-data:
