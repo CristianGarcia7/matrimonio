@@ -1,0 +1,29 @@
+.guestbook-signatures {
+  @apply flex max-h-[36rem] flex-col gap-4 overflow-y-auto pr-1;
+}
+
+.guestbook-signatures__notice {
+  @apply rounded-2xl border border-dashed border-border px-6 py-8 text-center text-muted-foreground;
+}
+
+.signature-card {
+  @apply flex flex-col gap-4 rounded-2xl border border-border bg-card p-6;
+}
+
+.signature-card__message {
+  @apply font-display text-lg leading-relaxed whitespace-pre-line text-foreground italic;
+  overflow-wrap: anywhere;
+}
+
+.signature-card__footer {
+  @apply flex flex-col gap-1 border-t border-border pt-3;
+}
+
+.signature-card__name {
+  @apply font-medium text-foreground;
+  overflow-wrap: anywhere;
+}
+
+.signature-card__date {
+  @apply text-xs text-muted-foreground;
+}

@@ -1,0 +1,11 @@
+.form-field {
+  @apply flex flex-col gap-2;
+}
+
+.form-field__label {
+  @apply text-sm font-medium tracking-wide text-foreground;
+}
+
+.form-field__error {
+  @apply text-sm text-destructive;
+}

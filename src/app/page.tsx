@@ -1,3 +1,4 @@
+import { GuestbookSection } from '@/domains/guestbook/components/organisms/guestbook-section';
 import { BlessingSection } from '@/domains/invitation/components/organisms/blessing-section';
 import { CountdownSection } from '@/domains/invitation/components/organisms/countdown-section';
 import { EventsSection } from '@/domains/invitation/components/organisms/events-section';
@@ -12,6 +13,7 @@ export default function HomePage() {
         <CountdownSection />
         <EventsSection />
         <BlessingSection />
+        <GuestbookSection />
       </main>
       <InvitationClosing />
     </>

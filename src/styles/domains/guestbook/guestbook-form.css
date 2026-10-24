@@ -1,0 +1,24 @@
+.guestbook-form {
+  @apply relative flex flex-col gap-6 rounded-2xl border border-border bg-card p-6 md:p-8;
+}
+
+/* Honeypot: kept in the DOM for bots, invisible and unreachable for people. */
+.guestbook-form__trap {
+  @apply absolute -left-[9999px] h-px w-px overflow-hidden;
+}
+
+.guestbook-form__feedback {
+  @apply empty:hidden;
+}
+
+.guestbook-form__error {
+  @apply rounded-xl bg-destructive/10 px-4 py-3 text-sm text-destructive;
+}
+
+.guestbook-form__success {
+  @apply rounded-xl bg-accent px-4 py-3 text-sm text-accent-foreground;
+}
+
+.guestbook-form__submit {
+  @apply w-full rounded-full sm:w-auto sm:self-center;
+}
