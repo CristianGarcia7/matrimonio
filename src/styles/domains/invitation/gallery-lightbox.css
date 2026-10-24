@@ -1,0 +1,79 @@
+.gallery-lightbox {
+  @apply fixed inset-0 m-0 h-dvh max-h-none w-full max-w-none overflow-hidden bg-transparent p-0 text-ivory;
+}
+
+.gallery-lightbox:not([open]) {
+  @apply hidden;
+}
+
+.gallery-lightbox[open] {
+  @apply grid grid-cols-[auto_1fr_auto] grid-rows-[auto_1fr] items-center;
+}
+
+.gallery-lightbox::backdrop {
+  background-color: color-mix(in oklab, var(--midnight) 94%, transparent);
+}
+
+html:has(.gallery-lightbox[open]) {
+  @apply overflow-hidden;
+}
+
+.gallery-lightbox__counter {
+  @apply text-ivory/85 col-start-2 row-start-1 py-5 text-center text-xs tracking-[0.3em];
+}
+
+.gallery-lightbox__close {
+  @apply border-gold/60 text-gold col-start-3 row-start-1 mr-4 rounded-full border px-4 py-2 text-[0.7rem] tracking-[0.25em] uppercase;
+  @apply hover:bg-gold hover:text-navy focus-visible:outline-gold focus-visible:outline-2 focus-visible:outline-offset-2;
+}
+
+.gallery-lightbox__figure {
+  @apply col-span-3 col-start-1 row-start-2 flex h-full min-h-0 flex-col items-center justify-center gap-3 px-4 pb-6;
+  touch-action: pan-y;
+}
+
+.gallery-lightbox__image {
+  @apply border-paper h-auto max-h-[calc(100dvh-9rem)] w-auto max-w-full rounded-[3px] border-[6px] object-contain shadow-2xl select-none;
+}
+
+.gallery-lightbox__caption {
+  @apply text-ivory/80 max-w-xl text-center text-sm italic;
+}
+
+.gallery-lightbox__nav {
+  @apply border-gold/50 bg-navy/70 text-gold z-10 row-start-2 grid size-11 place-items-center rounded-full border backdrop-blur-sm;
+  @apply hover:bg-gold hover:text-navy focus-visible:outline-gold focus-visible:outline-2 focus-visible:outline-offset-2;
+}
+
+.gallery-lightbox__nav svg {
+  @apply size-5 fill-none stroke-current stroke-2;
+}
+
+.gallery-lightbox__nav--previous {
+  @apply col-start-1 ml-3 sm:ml-6;
+}
+
+.gallery-lightbox__nav--next {
+  @apply col-start-3 mr-3 sm:mr-6;
+}
+
+.gallery-lightbox__preload {
+  @apply hidden;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .gallery-lightbox__image {
+    animation: gallery-lightbox-in 280ms ease-out both;
+  }
+}
+
+@keyframes gallery-lightbox-in {
+  from {
+    opacity: 0;
+    scale: 0.97;
+  }
+  to {
+    opacity: 1;
+    scale: 1;
+  }
+}

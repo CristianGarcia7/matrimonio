@@ -72,6 +72,19 @@ export const invitationMessages = {
       time: '6:40 p. m.'
     }
   },
+  gallery: {
+    title: 'Nuestra historia',
+    subtitle: 'Algunos de los momentos que nos trajeron hasta aquí',
+    openPhotoLabel: (position: number, total: number) =>
+      `Ampliar foto ${position} de ${total}:`,
+    dotsLabel: 'Fotos de la galería',
+    goToPhotoLabel: (position: number) => `Ir a la foto ${position}`,
+    dialogAriaLabel: 'Visor de fotos',
+    closeLabel: 'Cerrar',
+    previousLabel: 'Foto anterior',
+    nextLabel: 'Foto siguiente',
+    counter: (position: number, total: number) => `${position} / ${total}`
+  },
   gift: {
     title: 'Lluvia de sobres',
     body: 'Su presencia es nuestro mejor regalo. Si desean tener un detalle con nosotros, tendremos una lluvia de sobres el día de la recepción.'

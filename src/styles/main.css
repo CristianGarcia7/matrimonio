@@ -15,6 +15,8 @@
 @import './domains/invitation/hero-section.css';
 @import './domains/invitation/blessing-section.css';
 @import './domains/invitation/announcement-section.css';
+@import './domains/invitation/gallery-section.css';
+@import './domains/invitation/gallery-lightbox.css';
 @import './domains/invitation/event-card.css';
 @import './domains/invitation/countdown.css';
 @import './domains/invitation/gift-section.css';

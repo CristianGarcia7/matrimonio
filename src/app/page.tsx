@@ -9,6 +9,7 @@ import { BlessingSection } from '@/domains/invitation/components/organisms/bless
 import { CountdownSection } from '@/domains/invitation/components/organisms/countdown-section';
 import { DressCodeSection } from '@/domains/invitation/components/organisms/dress-code-section';
 import { EventsSection } from '@/domains/invitation/components/organisms/events-section';
+import { GallerySection } from '@/domains/invitation/components/organisms/gallery-section';
 import { GiftSection } from '@/domains/invitation/components/organisms/gift-section';
 import { HeroSection } from '@/domains/invitation/components/organisms/hero-section';
 import { InvitationClosing } from '@/domains/invitation/components/organisms/invitation-closing';
@@ -29,6 +30,7 @@ export default function HomePage() {
           <HeroSection />
           <BlessingSection />
           <AnnouncementSection />
+          <GallerySection />
           <EventsSection />
           <CountdownSection />
           <GiftSection />

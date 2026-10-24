@@ -1,0 +1,108 @@
+/* Mobile: full-bleed scroll-snap carousel. Desktop: the section breaks out of
+   the narrow column into a wider polaroid collage. */
+.gallery-section {
+  @apply md:w-[min(64rem,100vw_-_3rem)] md:self-center;
+}
+
+.gallery-section__track {
+  @apply -mx-4 flex snap-x snap-mandatory gap-5 overflow-x-auto px-[11%] pt-3 pb-6;
+  scrollbar-width: none;
+}
+
+.gallery-section__track::-webkit-scrollbar {
+  @apply hidden;
+}
+
+@media (min-width: 48rem) {
+  .gallery-section__track {
+    @apply mx-0 grid auto-rows-[13rem] grid-cols-4 gap-6 overflow-visible px-0 pb-2;
+    grid-auto-flow: dense;
+  }
+}
+
+.gallery-frame {
+  @apply bg-paper border-gold-deep/35 relative aspect-[4/5] w-[78%] flex-none snap-center rounded-[3px] border p-2 pb-7;
+  rotate: var(--frame-tilt, 0deg);
+  box-shadow:
+    0 18px 32px -18px rgb(0 0 0 / 0.75),
+    0 4px 10px -6px rgb(0 0 0 / 0.45);
+  transition:
+    rotate 300ms ease,
+    scale 300ms ease;
+}
+
+/* Alternating hand-placed tilt. */
+.gallery-frame:nth-child(4n + 1) {
+  --frame-tilt: -1.6deg;
+}
+.gallery-frame:nth-child(4n + 2) {
+  --frame-tilt: 1.2deg;
+}
+.gallery-frame:nth-child(4n + 3) {
+  --frame-tilt: -0.8deg;
+}
+.gallery-frame:nth-child(4n) {
+  --frame-tilt: 1.8deg;
+}
+
+@media (min-width: 48rem) {
+  .gallery-frame {
+    @apply aspect-auto h-full w-auto pb-8;
+  }
+
+  .gallery-frame--featured {
+    @apply col-span-2 row-span-2;
+  }
+
+  /* Pinned to the right of rows 3-4 so the 4x4 collage packs without holes
+     (featured 2x2 + tall 1x2 + ten single frames). */
+  .gallery-frame--tall {
+    @apply col-start-4 row-span-2 row-start-3;
+  }
+
+  .gallery-frame:hover,
+  .gallery-frame:focus-within {
+    @apply z-10 scale-[1.03];
+    rotate: 0deg;
+  }
+}
+
+.gallery-frame__link {
+  @apply relative block size-full overflow-hidden rounded-[2px] focus-visible:outline-gold focus-visible:outline-2 focus-visible:outline-offset-4;
+}
+
+.gallery-frame__image {
+  @apply object-cover;
+}
+
+.gallery-frame__image--center {
+  @apply object-center;
+}
+
+.gallery-frame__image--upper-left {
+  @apply object-[40%_30%];
+}
+
+.gallery-dots {
+  @apply flex flex-wrap justify-center gap-1 md:hidden;
+}
+
+/* 24px hit area around a small visible dot. */
+.gallery-dots__dot {
+  @apply relative size-6 rounded-full focus-visible:outline-gold focus-visible:outline-2;
+}
+
+.gallery-dots__dot::after {
+  @apply bg-ivory/35 absolute top-1/2 left-1/2 size-2 -translate-1/2 rounded-full transition-colors;
+  content: '';
+}
+
+.gallery-dots__dot--active::after {
+  @apply bg-gold;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .gallery-frame {
+    @apply transition-none;
+  }
+}
