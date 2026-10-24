@@ -198,12 +198,8 @@ while the app runs, or `pm2 stop wedding-invitation` before copying the file
 
 ### Background music
 
-The invitation plays `public/audio/canon-in-d.mp3` once a guest opens the
-envelope: "Canon in D Major" (Johann Pachelbel), performed and arranged by
-Kevin MacLeod ([incompetech.com](https://incompetech.com)), from Wikimedia
-Commons (`File:Canon_in_D_Major_(ISRC_USUAN1100301).mp3`). It is licensed under
-[Creative Commons: Attribution 3.0](http://creativecommons.org/licenses/by/3.0/);
-the required attribution is shown in the page footer. If the file is missing,
+The invitation plays `public/audio/que-suerte-tenerte.mp3` once a guest opens
+the envelope: "Que Suerte Tenerte" by Fonseca. If the file is missing,
 the player stays hidden and the page works normally.
 
 ### Assets & licenses
@@ -215,11 +211,11 @@ the player stays hidden and the page works normally.
   faded out (`public/images/neuschwanstein-photochrom-1600.webp`,
   `neuschwanstein-photochrom-900.webp`, a portrait crop centred on the castle).
 - Watercolor florals: Pierre-Joseph Redouté, public domain, via Wikimedia
-  Commons — `File:Redoute - Rosa centifolia foliacea.jpg` (*Les Roses*) and
+  Commons — `File:Redoute - Rosa centifolia foliacea.jpg` (_Les Roses_) and
   `File:T3 24 Hortensia opuloides par Pierre-Joseph Redouté.jpeg`. Cropped, paper
   keyed to transparency and recoloured to hydrangea blue with sage leaves
   (`public/images/watercolor-rose.webp`, `watercolor-hydrangea.webp`).
-- Music: "Canon in D Major", Kevin MacLeod, CC BY 3.0 (see above).
+- Music: "Que Suerte Tenerte", Fonseca (see above).
 - The paper grain is generated in CSS (inline SVG `feTurbulence`).
 
 ---

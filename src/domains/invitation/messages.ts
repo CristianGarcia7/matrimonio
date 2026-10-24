@@ -127,18 +127,13 @@ export const invitationMessages = {
       'Ilustraciones: fotocromo del castillo de Neuschwanstein (Detroit Publishing Co., Biblioteca del Congreso) y acuarelas de Pierre-Joseph Redouté; dominio público, vía Wikimedia Commons.'
   },
   music: {
-    songTitle: 'Canon in D Major',
-    composer: 'Johann Pachelbel',
-    artist: 'Kevin MacLeod',
+    songTitle: 'Que Suerte Tenerte',
+    composer: 'Fonseca',
+    artist: 'Fonseca',
     playLabel: 'Reproducir música',
     pauseLabel: 'Pausar música',
     nowPlaying: (songTitle: string, artist: string) =>
       `Suena: ${songTitle} · ${artist}`,
-    credit: {
-      prefix: 'Música: “Canon in D Major” — Kevin MacLeod (',
-      authorSite: 'incompetech.com',
-      licensePrefix: '). Licencia Creative Commons: Atribución 3.0 — ',
-      licenseUrl: 'http://creativecommons.org/licenses/by/3.0/'
-    }
+    credit: 'Música: “Que Suerte Tenerte” — Fonseca'
   }
 } as const;
