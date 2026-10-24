@@ -1,0 +1,50 @@
+.dress-code-section__content {
+  @apply flex flex-col items-center gap-5 text-center;
+}
+
+.dress-code-section__title {
+  @apply font-display text-foil-deep text-[2rem] leading-tight text-balance sm:text-4xl;
+}
+
+.dress-code-section__body {
+  @apply text-ink-muted max-w-sm text-base leading-relaxed text-pretty italic;
+}
+
+.dress-code-section__swatches {
+  @apply mt-2 flex items-start justify-center gap-10;
+}
+
+.dress-code-section__swatch-item {
+  @apply flex flex-col items-center gap-3;
+}
+
+/* Round swatch struck through by a fine gold diagonal. */
+.dress-code-section__swatch {
+  @apply relative block size-16 overflow-hidden rounded-full sm:size-20;
+  box-shadow:
+    0 0 0 4px var(--paper),
+    0 0 0 5px color-mix(in oklab, var(--gold-deep) 55%, transparent),
+    0 10px 18px -10px rgb(0 0 0 / 0.45);
+}
+
+.dress-code-section__swatch::after {
+  @apply absolute top-1/2 left-1/2 h-0.5 w-[130%] -translate-1/2 -rotate-45;
+  content: '';
+  background-color: var(--gold-deep);
+}
+
+.dress-code-section__swatch--white {
+  @apply border-ink-muted/40 border bg-white;
+}
+
+.dress-code-section__swatch--black {
+  @apply bg-black;
+}
+
+.dress-code-section__swatch--black::after {
+  background-color: var(--gold);
+}
+
+.dress-code-section__swatch-label {
+  @apply text-ink text-xs tracking-[0.3em] uppercase;
+}

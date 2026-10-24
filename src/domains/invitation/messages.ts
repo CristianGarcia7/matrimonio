@@ -72,6 +72,19 @@ export const invitationMessages = {
       time: '6:40 p. m.'
     }
   },
+  gift: {
+    title: 'Lluvia de sobres',
+    body: 'Su presencia es nuestro mejor regalo. Si desean tener un detalle con nosotros, tendremos una lluvia de sobres el día de la recepción.'
+  },
+  dressCode: {
+    title: 'Código de color',
+    body: 'Con cariño les pedimos evitar los colores blanco y negro; el blanco está reservado para la novia.',
+    avoidLabel: 'No usar',
+    colors: {
+      white: 'Blanco',
+      black: 'Negro'
+    }
+  },
   calendar: {
     eventTitle: 'Boda de Jose Ignacio & Patricia',
     details:

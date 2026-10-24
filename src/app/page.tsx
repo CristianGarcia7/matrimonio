@@ -7,7 +7,9 @@ import {
 import { AnnouncementSection } from '@/domains/invitation/components/organisms/announcement-section';
 import { BlessingSection } from '@/domains/invitation/components/organisms/blessing-section';
 import { CountdownSection } from '@/domains/invitation/components/organisms/countdown-section';
+import { DressCodeSection } from '@/domains/invitation/components/organisms/dress-code-section';
 import { EventsSection } from '@/domains/invitation/components/organisms/events-section';
+import { GiftSection } from '@/domains/invitation/components/organisms/gift-section';
 import { HeroSection } from '@/domains/invitation/components/organisms/hero-section';
 import { InvitationClosing } from '@/domains/invitation/components/organisms/invitation-closing';
 import { InvitationCover } from '@/domains/invitation/components/organisms/invitation-cover';
@@ -29,6 +31,8 @@ export default function HomePage() {
           <AnnouncementSection />
           <EventsSection />
           <CountdownSection />
+          <GiftSection />
+          <DressCodeSection />
           <GuestbookSection />
         </main>
         <InvitationClosing />

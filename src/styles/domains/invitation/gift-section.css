@@ -1,0 +1,113 @@
+.gift-section__content {
+  @apply flex flex-col items-center gap-4 text-center;
+}
+
+.gift-section__title {
+  @apply font-display text-foil-deep text-[2rem] leading-tight text-balance sm:text-4xl;
+}
+
+.gift-section__body {
+  @apply text-ink-muted max-w-sm text-base leading-relaxed text-pretty italic;
+}
+
+/* A loose cascade of sealed envelopes, each with its own tilt and offset. */
+.envelope-rain {
+  @apply relative mb-2 h-36 w-full max-w-xs sm:h-40;
+}
+
+.envelope-rain__item {
+  @apply absolute block;
+  rotate: var(--rain-tilt);
+}
+
+.envelope-rain__item:nth-child(1) {
+  @apply top-[4%] left-[6%] w-14;
+  --rain-tilt: -14deg;
+  --rain-delay: 0ms;
+}
+.envelope-rain__item:nth-child(2) {
+  @apply top-0 left-[38%] w-12;
+  --rain-tilt: 9deg;
+  --rain-delay: -1.4s;
+}
+.envelope-rain__item:nth-child(3) {
+  @apply top-[8%] right-[4%] w-14;
+  --rain-tilt: 16deg;
+  --rain-delay: -2.6s;
+}
+.envelope-rain__item:nth-child(4) {
+  @apply top-[42%] left-[20%] w-16;
+  --rain-tilt: 6deg;
+  --rain-delay: -0.8s;
+}
+.envelope-rain__item:nth-child(5) {
+  @apply top-[34%] left-[42%] w-20;
+  --rain-tilt: -5deg;
+  --rain-delay: -3.2s;
+}
+.envelope-rain__item:nth-child(6) {
+  @apply top-[46%] right-[14%] w-14;
+  --rain-tilt: -12deg;
+  --rain-delay: -2s;
+}
+.envelope-rain__item:nth-child(7) {
+  @apply top-[70%] left-[2%] w-10;
+  --rain-tilt: 20deg;
+  --rain-delay: -3.8s;
+}
+
+.envelope-rain__envelope {
+  @apply block h-auto w-full;
+  filter: drop-shadow(0 6px 6px rgb(20 40 75 / 0.18));
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .envelope-rain__envelope {
+    animation: envelope-rain-float 5.2s ease-in-out var(--rain-delay) infinite
+      alternate;
+  }
+}
+
+@keyframes envelope-rain-float {
+  from {
+    transform: translateY(-4px) rotate(-3deg);
+  }
+  to {
+    transform: translateY(5px) rotate(3deg);
+  }
+}
+
+.sealed-envelope-icon__paper {
+  fill: var(--paper);
+  stroke: color-mix(in oklab, var(--gold-deep) 60%, transparent);
+  stroke-width: 1;
+}
+
+.sealed-envelope-icon__fold {
+  fill: none;
+  stroke: color-mix(in oklab, var(--gold-deep) 40%, transparent);
+  stroke-width: 0.8;
+}
+
+.sealed-envelope-icon__flap {
+  fill: var(--paper-shade);
+  stroke: color-mix(in oklab, var(--gold-deep) 55%, transparent);
+  stroke-width: 0.8;
+  stroke-linejoin: round;
+}
+
+.sealed-envelope-icon__seal {
+  fill: var(--gold);
+  stroke: var(--gold-deep);
+  stroke-width: 0.8;
+}
+
+.sealed-envelope-icon__seal-ring {
+  fill: none;
+  stroke: rgb(90 62 18 / 0.55);
+  stroke-width: 0.6;
+}
+
+.sealed-envelope-icon__seal-shine {
+  fill: rgb(255 240 200 / 0.7);
+}

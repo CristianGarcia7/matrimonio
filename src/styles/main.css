@@ -17,6 +17,8 @@
 @import './domains/invitation/announcement-section.css';
 @import './domains/invitation/event-card.css';
 @import './domains/invitation/countdown.css';
+@import './domains/invitation/gift-section.css';
+@import './domains/invitation/dress-code-section.css';
 @import './domains/invitation/invitation-closing.css';
 @import './domains/invitation/music-player.css';
 @import './domains/guestbook/guestbook-section.css';
