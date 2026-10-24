@@ -36,3 +36,6 @@ yarn-error.log*
 
 # Documentation and assets not required by the build
 *.md
+
+# local SQLite data
+data/
