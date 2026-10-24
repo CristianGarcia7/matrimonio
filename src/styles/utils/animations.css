@@ -1,0 +1,54 @@
+@keyframes fade-rise {
+  from {
+    opacity: 0;
+    transform: translateY(1.25rem);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* All motion is opt-in: visitors who prefer reduced motion see static content. */
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  .hero-section > * {
+    animation: fade-rise 900ms cubic-bezier(0.2, 0.7, 0.2, 1) both;
+  }
+
+  .hero-section > :nth-child(2) {
+    animation-delay: 150ms;
+  }
+
+  .hero-section > :nth-child(3) {
+    animation-delay: 300ms;
+  }
+
+  .hero-section > :nth-child(4) {
+    animation-delay: 420ms;
+  }
+
+  .hero-section > :nth-child(n + 5) {
+    animation-delay: 540ms;
+  }
+
+  /* Scroll-driven reveal without JavaScript; browsers without support simply
+     show the content immediately. */
+  @supports (animation-timeline: view()) {
+    .section-heading,
+    .countdown-unit,
+    .countdown-timer__message,
+    .event-card,
+    .parents-group,
+    .guestbook-form,
+    .signature-card,
+    .invitation-closing {
+      animation: fade-rise linear both;
+      animation-timeline: view();
+      animation-range: entry 0% cover 25%;
+    }
+  }
+}

@@ -1,5 +1,5 @@
 .blessing-section {
-  @apply px-6 py-20;
+  @apply bg-accent/50 px-6 py-20;
 }
 
 .blessing-section__grid {

@@ -1,5 +1,5 @@
 .event-card {
-  @apply flex flex-col items-center gap-2 rounded-2xl border border-border bg-card px-6 py-10 text-center;
+  @apply flex flex-col items-center gap-2 rounded-2xl border border-border bg-card px-6 py-10 text-center shadow-sm shadow-gold/10;
 }
 
 .event-card__title {
@@ -7,7 +7,7 @@
 }
 
 .event-card__time {
-  @apply font-display text-xl text-primary;
+  @apply font-display text-xl text-primary lining-nums;
 }
 
 .event-card__venue {
