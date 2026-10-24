@@ -41,6 +41,9 @@ export function InvitationClosing() {
           {credit.licenseUrl}
         </a>
       </p>
+      <p className="invitation-closing__credit invitation-closing__credit--backdrop">
+        {closing.backdropCredit}
+      </p>
     </footer>
   );
 }

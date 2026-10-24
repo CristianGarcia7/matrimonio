@@ -93,7 +93,9 @@ export const invitationMessages = {
   closing: {
     message: 'Tu presencia es el regalo más grande que podemos recibir.',
     thanks: 'Gracias por ser parte de nuestra historia',
-    signature: 'Jose Ignacio & Patricia'
+    signature: 'Jose Ignacio & Patricia',
+    backdropCredit:
+      'Ilustraciones: Christian Jank, diseño del castillo de Neuschwanstein (1869), y acuarelas de Pierre-Joseph Redouté; dominio público, vía Wikimedia Commons.'
   },
   music: {
     songTitle: 'Canon in D Major',

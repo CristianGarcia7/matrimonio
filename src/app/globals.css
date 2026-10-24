@@ -143,8 +143,10 @@
   html {
     @apply bg-midnight;
   }
+  /* No body background: <html> already paints midnight, and a body background
+     would cover the fixed night sky that sits at a negative z-index. */
   body {
-    @apply bg-background text-foreground font-sans;
+    @apply text-foreground font-sans;
   }
   :focus-visible {
     @apply outline-ring outline-2 outline-offset-2;

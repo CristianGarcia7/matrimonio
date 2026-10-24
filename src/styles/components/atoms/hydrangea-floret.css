@@ -1,0 +1,9 @@
+.hydrangea-floret__petals {
+  fill: var(--ornament-petal);
+  stroke: var(--ornament-petal-stroke);
+  stroke-width: 0.45;
+}
+
+.hydrangea-floret__center {
+  fill: var(--ornament-line);
+}

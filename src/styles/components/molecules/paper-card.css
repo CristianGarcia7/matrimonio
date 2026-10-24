@@ -33,13 +33,14 @@
 }
 
 .paper-card__corner {
-  @apply pointer-events-none absolute size-28 sm:size-36;
+  @apply pointer-events-none absolute h-auto opacity-90 mix-blend-multiply select-none;
 }
 
+/* Kept within the card padding so the florals never sit under the text. */
 .paper-card__corner--start {
-  @apply top-0 left-0;
+  @apply -top-3 -left-4 w-36 -rotate-6;
 }
 
 .paper-card__corner--end {
-  @apply right-0 bottom-0 rotate-180;
+  @apply -right-3 -bottom-1 w-28 rotate-[-4deg] -scale-x-100;
 }

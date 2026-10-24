@@ -18,6 +18,56 @@
   @apply absolute;
 }
 
+/* Christian Jank's 1869 Neuschwanstein drawing (public domain), turned into a
+   powder-blue pencil sketch on black: screen blending drops the black into the
+   navy and leaves only faint moonlit lines rising from the bottom edge. */
+.night-sky__castle {
+  @apply absolute inset-x-0 bottom-0 bg-no-repeat opacity-20 mix-blend-screen;
+  aspect-ratio: 1880 / 1032;
+  min-height: 58%;
+  max-height: 92%;
+  background-image: url('/images/neuschwanstein-sketch-900.webp');
+  background-size: cover;
+  /* Keeps the main towers in frame when narrow screens crop the sides. */
+  background-position: 60% 100%;
+  mask-image: linear-gradient(to top, #000 35%, transparent 95%);
+}
+
+.night-sky--vivid .night-sky__castle {
+  @apply opacity-25;
+}
+
+@media (min-width: 48rem) {
+  .night-sky__castle {
+    background-image: url('/images/neuschwanstein-sketch-1600.webp');
+  }
+}
+
+/* Oversized watercolor florals, barely there behind the stars. */
+.night-sky__botanicals {
+  @apply absolute inset-0 opacity-5;
+}
+
+.night-sky__floral {
+  @apply absolute h-auto w-[26rem] max-w-none md:w-[40rem];
+}
+
+.night-sky__floral--start {
+  @apply -top-10 -left-24 rotate-[-18deg];
+}
+
+.night-sky__floral--end {
+  @apply -right-28 bottom-[34%] rotate-[160deg];
+}
+
+/* Fine fractal noise, overlay-blended at half strength so the navy reads as
+   printed stationery; one small tile rasterised once and repeated. */
+.night-sky__grain {
+  @apply absolute inset-0 opacity-50 mix-blend-overlay;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)'/%3E%3C/svg%3E");
+  background-size: 180px 180px;
+}
+
 /* Two tiled layers of gold dust; each tile repeats, so the cost is constant
    regardless of the viewport size. */
 .night-sky__dust {

@@ -35,7 +35,7 @@ export function InvitationCover({ onOpen }: InvitationCoverProps) {
       aria-modal="true"
       aria-label={cover.dialogAriaLabel}
     >
-      <NightSky isContained />
+      <NightSky isContained isBackdropVivid />
       <div className="invitation-cover__stage">
         <Envelope
           isOpen={isEnvelopeOpen}
