@@ -33,11 +33,11 @@ html:has(.gallery-lightbox[open]) {
 }
 
 .gallery-lightbox__image {
-  @apply border-paper h-auto max-h-[calc(100dvh-9rem)] w-auto max-w-full rounded-[3px] border-[6px] object-contain shadow-2xl select-none;
+  @apply border-paper h-auto max-h-[calc(100dvh-12rem)] w-auto max-w-full rounded-[3px] border-[6px] object-contain shadow-2xl select-none;
 }
 
 .gallery-lightbox__caption {
-  @apply text-ivory/80 max-w-xl text-center text-sm italic;
+  @apply font-script text-gold max-w-xl px-4 text-center text-[1.75rem] leading-snug text-balance sm:text-[2rem];
 }
 
 .gallery-lightbox__nav {

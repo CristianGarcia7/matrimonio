@@ -9,6 +9,8 @@ export type GalleryCropFocus =
 export interface GalleryPhoto {
   src: string;
   alt: string;
+  // Short visible line shown under the photo in the lightbox.
+  caption?: string;
   width: number;
   height: number;
   // Where cropped cards should focus; defaults to the centre.

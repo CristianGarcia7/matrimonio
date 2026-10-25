@@ -76,9 +76,11 @@ export function GalleryLightbox({ photos }: GalleryLightboxProps) {
               draggable={false}
               className="gallery-lightbox__image"
             />
-            <figcaption className="gallery-lightbox__caption">
-              {photo.alt}
-            </figcaption>
+            {photo.caption && (
+              <figcaption className="gallery-lightbox__caption">
+                {photo.caption}
+              </figcaption>
+            )}
           </figure>
           <button
             type="button"
