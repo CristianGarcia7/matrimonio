@@ -94,7 +94,7 @@
 
 /* 24px hit area around a small visible dot; the active one stretches. */
 .gallery-deck__dot {
-  @apply relative h-6 w-[1.375rem] rounded-full focus-visible:outline-gold focus-visible:outline-2;
+  @apply focus-visible:outline-gold relative h-6 w-[1.375rem] rounded-full focus-visible:outline-2;
 }
 
 .gallery-deck__dot::after {
@@ -109,8 +109,157 @@
   @apply bg-gold w-4;
 }
 
+/* Affordances on the front card: an expand badge and a caption teaser that
+   say "this opens large, with a message". Side cards keep them hidden. */
+.gallery-deck-card__badge {
+  @apply border-gold/80 bg-bottle-deep/75 text-gold absolute top-2.5 right-2.5 z-[2] grid size-8 place-items-center rounded-full border opacity-0 backdrop-blur-[2px];
+  box-shadow: 0 4px 10px -4px rgb(0 0 0 / 0.7);
+  transition: opacity 500ms ease 300ms;
+}
+
+.gallery-deck-card__badge-icon {
+  @apply size-4 fill-none stroke-current stroke-[1.6];
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* Soft ring that breathes outwards from the badge. */
+.gallery-deck-card__badge::after {
+  @apply border-gold/70 pointer-events-none absolute inset-0 rounded-full border opacity-0;
+  content: '';
+}
+
+/* The gradient stays >= 85 % opaque behind the text (ivory ~10:1, gold
+   ~5.5:1 even over a white photo). */
+.gallery-deck-card__teaser {
+  @apply absolute inset-x-0 bottom-0 z-[1] flex flex-col items-center gap-1 px-4 pt-12 pb-4 text-center opacity-0;
+  background: linear-gradient(
+    to top,
+    rgb(6 26 18 / 0.94) 0%,
+    rgb(6 26 18 / 0.88) 55%,
+    rgb(6 26 18 / 0) 100%
+  );
+  transform: translateY(0.5rem);
+  transition:
+    opacity 500ms ease 350ms,
+    transform 500ms ease 350ms;
+}
+
+.gallery-deck-card__teaser-caption {
+  @apply font-script text-ivory block w-full truncate text-[1.3rem] leading-tight md:text-[1.6rem];
+}
+
+.gallery-deck-card__teaser-cta {
+  @apply text-gold text-[0.625rem] tracking-[0.28em] uppercase md:text-[0.7rem];
+}
+
+.gallery-deck-card--active .gallery-deck-card__badge,
+.gallery-deck-card--active .gallery-deck-card__teaser {
+  @apply opacity-100;
+  transform: none;
+}
+
+/* First-visit glow, behind the front card's frame. */
+.gallery-deck-card::before {
+  @apply pointer-events-none absolute inset-0 -z-10 rounded-2xl opacity-0;
+  box-shadow: 0 0 34px 8px color-mix(in oklab, var(--gold) 55%, transparent);
+  content: '';
+}
+
+/* Diagonal light sweep across the photo during the intro. */
+.gallery-deck-card__link::before {
+  @apply pointer-events-none absolute inset-0 z-[1] opacity-0;
+  background: linear-gradient(
+    110deg,
+    transparent 35%,
+    color-mix(in oklab, var(--gold) 35%, transparent) 50%,
+    transparent 65%
+  );
+  transform: translateX(-100%);
+  content: '';
+}
+
+.gallery-deck__hint {
+  @apply text-gold flex items-center justify-center gap-2 text-center text-sm tracking-wide italic;
+}
+
+.gallery-deck__hint-icon {
+  @apply size-5 flex-none fill-none stroke-current stroke-[1.4];
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  transform-origin: 60% 80%;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .gallery-deck-card--active .gallery-deck-card__badge::after {
+    animation: gallery-badge-pulse 2.6s ease-out 1s infinite;
+  }
+
+  .gallery-deck--intro .gallery-deck-card--active::before {
+    animation: gallery-card-glow 1.5s ease-in-out;
+  }
+
+  .gallery-deck--intro
+    .gallery-deck-card--active
+    .gallery-deck-card__link::before {
+    animation: gallery-card-shimmer 1.5s ease-in-out;
+  }
+
+  .gallery-deck--intro .gallery-deck__hint-icon {
+    animation: gallery-hint-tap 0.75s ease-in-out 2;
+  }
+}
+
+@keyframes gallery-badge-pulse {
+  0% {
+    opacity: 0.8;
+    transform: scale(1);
+  }
+  70%,
+  100% {
+    opacity: 0;
+    transform: scale(1.7);
+  }
+}
+
+@keyframes gallery-card-glow {
+  0%,
+  100% {
+    opacity: 0;
+  }
+  45% {
+    opacity: 1;
+  }
+}
+
+@keyframes gallery-card-shimmer {
+  0% {
+    opacity: 1;
+    transform: translateX(-100%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(100%);
+  }
+}
+
+@keyframes gallery-hint-tap {
+  0%,
+  100% {
+    transform: translateY(0) scale(1);
+  }
+  45% {
+    transform: translateY(2px) scale(0.9);
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .gallery-deck-card {
     transition-duration: 300ms;
+  }
+
+  .gallery-deck-card__badge,
+  .gallery-deck-card__teaser {
+    transition: none;
   }
 }

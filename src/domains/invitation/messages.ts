@@ -101,8 +101,13 @@ export const invitationMessages = {
   gallery: {
     title: 'Nuestra historia',
     subtitle: 'Algunos de los momentos que nos trajeron hasta aquí',
-    openPhotoLabel: (position: number, total: number) =>
-      `Ampliar foto ${position} de ${total}:`,
+    openPhotoLabel: (position: number, total: number, caption?: string) =>
+      caption
+        ? `Ver foto en grande, ${position} de ${total}: ${caption}.`
+        : `Ver foto en grande, ${position} de ${total}.`,
+    teaserCta: 'Toca para leer',
+    hint: 'Toca una foto para verla en grande',
+    hintOrnament: '✦',
     deckLabel: 'Galería de fotos',
     slideLabel: (position: number, total: number) =>
       `Foto ${position} de ${total}`,

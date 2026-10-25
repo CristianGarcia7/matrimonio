@@ -7,8 +7,10 @@ import {
   getDeckOffset,
   useCoverflowDeck
 } from '../../hooks/use-coverflow-deck';
+import { useGalleryIntro } from '../../hooks/use-gallery-intro';
 import { invitationMessages } from '../../messages';
 import type { GalleryPhoto } from '../../types/gallery-photo.types';
+import { TapHandIcon } from '../atoms/tap-hand-icon';
 import { GalleryDeckCard } from '../molecules/gallery-deck-card';
 
 interface GalleryDeckProps {
@@ -35,12 +37,13 @@ export function GalleryDeck({ photos }: GalleryDeckProps) {
     handleClickCapture,
     handleKeyDown
   } = useCoverflowDeck(total);
+  const { isIntroPlaying, handlePhotoClick } = useGalleryIntro(deckRef);
   const { gallery } = invitationMessages;
 
   return (
     <div
       ref={deckRef}
-      className="gallery-deck"
+      className={cn('gallery-deck', isIntroPlaying && 'gallery-deck--intro')}
       role="region"
       aria-roledescription="carrusel"
       aria-label={gallery.deckLabel}
@@ -55,7 +58,10 @@ export function GalleryDeck({ photos }: GalleryDeckProps) {
         onPointerDown={handlePointerDown}
         onPointerUp={handlePointerUp}
         onPointerCancel={handlePointerCancel}
-        onClickCapture={handleClickCapture}
+        onClickCapture={event => {
+          handleClickCapture(event);
+          handlePhotoClick(event);
+        }}
       >
         <ul id={GALLERY_TRACK_ID} className="gallery-deck__cards">
           {photos.map((photo, index) => (
@@ -66,7 +72,12 @@ export function GalleryDeck({ photos }: GalleryDeckProps) {
               offset={getDeckOffset(index, activeIndex, total)}
               total={total}
               slideLabel={gallery.slideLabel(index + 1, total)}
-              openLabel={gallery.openPhotoLabel(index + 1, total)}
+              openLabel={gallery.openPhotoLabel(
+                index + 1,
+                total,
+                photo.caption
+              )}
+              teaserCta={gallery.teaserCta}
             />
           ))}
         </ul>
@@ -113,6 +124,13 @@ export function GalleryDeck({ photos }: GalleryDeckProps) {
           </svg>
         </button>
       </div>
+
+      <p className="gallery-deck__hint">
+        <TapHandIcon className="gallery-deck__hint-icon" />
+        <span aria-hidden="true">{gallery.hintOrnament}</span>
+        <span>{gallery.hint}</span>
+        <span aria-hidden="true">{gallery.hintOrnament}</span>
+      </p>
 
       <p
         className="sr-only"

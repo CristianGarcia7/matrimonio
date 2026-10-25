@@ -3,6 +3,7 @@ import type { CSSProperties } from 'react';
 
 import { cn } from '@/lib/utils';
 
+import { ExpandIcon } from '../atoms/expand-icon';
 import { GALLERY_CROP_FOCUS } from '../../types/gallery-photo.types';
 import type {
   GalleryCropFocus,
@@ -25,6 +26,7 @@ interface GalleryDeckCardProps {
   total: number;
   slideLabel: string;
   openLabel: string;
+  teaserCta: string;
 }
 
 // One card of the coverflow deck. Its 3D placement comes from CSS custom
@@ -35,7 +37,8 @@ export function GalleryDeckCard({
   offset,
   total,
   slideLabel,
-  openLabel
+  openLabel,
+  teaserCta
 }: GalleryDeckCardProps) {
   const distance = Math.abs(offset);
   const isActive = offset === 0;
@@ -80,6 +83,18 @@ export function GalleryDeckCard({
             CROP_FOCUS_CLASSES[photo.cropFocus ?? GALLERY_CROP_FOCUS.CENTER]
           )}
         />
+        {/* Visual affordances only: the link name already says it opens. */}
+        <span className="gallery-deck-card__badge" aria-hidden="true">
+          <ExpandIcon className="gallery-deck-card__badge-icon" />
+        </span>
+        {photo.caption && (
+          <span className="gallery-deck-card__teaser" aria-hidden="true">
+            <span className="gallery-deck-card__teaser-caption">
+              {photo.caption}
+            </span>
+            <span className="gallery-deck-card__teaser-cta">{teaserCta}</span>
+          </span>
+        )}
       </a>
     </li>
   );
