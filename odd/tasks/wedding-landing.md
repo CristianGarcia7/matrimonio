@@ -5,6 +5,7 @@ Elegant, mobile-first wedding invitation landing page with a countdown, event de
 
 ## Facts (source of truth)
 - Couple: Jose Ignacio Garcia Rincon & Patricia Yaima Rodriguez
+- Display names: "Ignacio Garcia & Patricia Yaima" (cover, hero, title, calendar, closing); monogram "I & P"; the full legal names line under the hero stays "Jose Ignacio Garcia Rincon · Patricia Yaima Rodriguez"
 - Date: Saturday, January 9, 2027 (America/Bogota, UTC-05:00)
 - Ceremony (mass): shown as 5:30 PM (real mass is 6:00 PM — intentionally earlier on the invitation). Parroquia Juan Pablo II, Barrio Margaritas — https://maps.app.goo.gl/nFMDQc8142s7JkrD8
 - Reception: 7:00 PM. Eventos Adonais — https://maps.app.goo.gl/as6DKxtiJbeW5HTV9

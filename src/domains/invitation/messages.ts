@@ -1,13 +1,13 @@
 export const invitationMessages = {
   monogram: {
-    firstInitial: 'J',
+    firstInitial: 'I',
     secondInitial: 'P',
     ampersand: '&',
-    ariaLabel: 'Monograma de Jose Ignacio y Patricia'
+    ariaLabel: 'Monograma de Ignacio Garcia y Patricia Yaima'
   },
   cover: {
-    dialogAriaLabel: 'Invitación de boda de Jose Ignacio y Patricia Yaima',
-    groomName: 'Jose Ignacio',
+    dialogAriaLabel: 'Invitación de boda de Ignacio Garcia y Patricia Yaima',
+    groomName: 'Ignacio Garcia',
     brideName: 'Patricia Yaima',
     ampersand: '&',
     date: 'Sábado 9 de enero de 2027',
@@ -16,7 +16,7 @@ export const invitationMessages = {
   },
   hero: {
     eyebrow: 'Nos casamos',
-    groomName: 'Jose Ignacio',
+    groomName: 'Ignacio Garcia',
     brideName: 'Patricia Yaima',
     ampersand: '&',
     fullNames: 'Jose Ignacio Garcia Rincon · Patricia Yaima Rodriguez',
@@ -171,7 +171,7 @@ export const invitationMessages = {
     }
   },
   calendar: {
-    eventTitle: 'Boda de Jose Ignacio & Patricia',
+    eventTitle: 'Boda de Ignacio Garcia & Patricia Yaima',
     details:
       'Ceremonia religiosa a las 5:30 p. m. en la Parroquia Juan Pablo II (Barrio Margaritas). Recepción a las 7:00 p. m. en Eventos Adonais.',
     location: 'Parroquia Juan Pablo II, Barrio Margaritas'
@@ -213,7 +213,7 @@ export const invitationMessages = {
   closing: {
     message: 'Tu presencia es el regalo más grande que podemos recibir.',
     thanks: 'Gracias por ser parte de nuestra historia',
-    signature: 'Jose Ignacio & Patricia'
+    signature: 'Ignacio Garcia & Patricia Yaima'
   },
   music: {
     songTitle: 'Que Suerte Tenerte',
