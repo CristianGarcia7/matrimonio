@@ -6,12 +6,45 @@
   @apply flex flex-col items-center gap-4 text-center;
 }
 
-.hero-section__eyebrow {
-  @apply text-gold-deep mt-2 text-xs tracking-[0.4em] uppercase;
+.hero-section__headline {
+  @apply mt-1 flex items-center justify-center gap-1.5 sm:gap-4;
+}
+
+/* Padding keeps Pinyon's swashes inside the background-clip box. */
+.hero-section__headline-text {
+  @apply font-script text-foil-deep inline-block px-[0.12em] py-[0.08em] leading-[1.2] whitespace-nowrap;
+  font-size: clamp(2.4rem, 10.5vw, 4.2rem);
+}
+
+.hero-section__flourish {
+  @apply h-4 w-8 shrink-0 sm:h-6 sm:w-16;
+}
+
+/* Below ~376 px the flourishes would crowd the headline. */
+@media (width < 23.5rem) {
+  .hero-section__flourish {
+    @apply hidden;
+  }
+}
+
+.script-flourish--mirrored {
+  @apply -scale-x-100;
+}
+
+.script-flourish__line {
+  fill: none;
+  stroke: var(--gold-deep);
+  stroke-width: 0.9;
+  stroke-linecap: round;
+}
+
+.script-flourish__leaf,
+.script-flourish__dot {
+  fill: var(--gold-deep);
 }
 
 .hero-section__names {
-  @apply font-display flex flex-col items-center text-[3.25rem] leading-[1.05] sm:text-6xl;
+  @apply font-display flex flex-col items-center text-[2.9rem] leading-[1.05] sm:text-6xl;
 }
 
 /* Foil is applied per name: background-clip on the heading would also paint
@@ -21,7 +54,7 @@
 }
 
 .hero-section__ampersand {
-  @apply font-script text-sage-deep my-2 text-6xl leading-none sm:text-7xl;
+  @apply font-script text-sage-deep my-1.5 text-[3.25rem] leading-none sm:text-7xl;
 }
 
 .hero-section__full-names {

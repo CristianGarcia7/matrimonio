@@ -2,6 +2,7 @@ import { OrnamentDivider } from '@/components/atoms/ornament-divider';
 import { WaxSeal } from '@/components/atoms/wax-seal';
 import { PaperCard } from '@/components/molecules/paper-card';
 
+import { ScriptFlourish } from '../atoms/script-flourish';
 import { invitationMessages } from '../../messages';
 import { CEREMONY_START_ISO } from '../../wedding-details';
 
@@ -18,7 +19,13 @@ export function HeroSection() {
             ampersand={monogram.ampersand}
             ariaLabel={monogram.ariaLabel}
           />
-          <p className="hero-section__eyebrow">{hero.eyebrow}</p>
+          <p className="hero-section__headline">
+            <ScriptFlourish isMirrored className="hero-section__flourish" />
+            {/* Foil sits on the text span only so the gradient clip never
+                reaches the decorative flourishes. */}
+            <span className="hero-section__headline-text">{hero.eyebrow}</span>
+            <ScriptFlourish className="hero-section__flourish" />
+          </p>
           <h1 id="hero-title" className="hero-section__names">
             <span className="hero-section__name">{hero.groomName}</span>
             <span className="hero-section__ampersand" aria-hidden="true">
