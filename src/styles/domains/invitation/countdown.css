@@ -103,24 +103,3 @@
 .flip-card__flap {
   @apply z-[1];
 }
-
-.countdown-section__actions {
-  @apply mt-12 flex justify-center;
-}
-
-/* Gold-ringed pill: an outer hairline ring echoes the tiles' borders. */
-.countdown-section__calendar-link {
-  @apply gap-2.5 px-8;
-  box-shadow:
-    0 0 0 4px var(--bottle-deep),
-    0 0 0 5px rgb(212 176 106 / 0.4),
-    0 14px 24px -14px rgb(0 0 0 / 0.8);
-}
-
-.countdown-section__calendar-icon {
-  @apply size-4 shrink-0;
-  fill: none;
-  stroke: currentColor;
-  stroke-width: 1.4;
-  stroke-linecap: round;
-}

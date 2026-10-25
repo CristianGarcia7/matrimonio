@@ -13,16 +13,10 @@ export const CALENDAR_EVENT_DATES = '20270109T223000Z/20270110T043000Z';
 
 export const CALENDAR_TIME_ZONE = 'America/Bogota';
 
-// Venue coordinates used for the embedded maps (no API key required).
-export const CEREMONY_COORDINATES = {
-  latitude: 4.628197,
-  longitude: -74.197037
-};
-
-export const RECEPTION_COORDINATES = {
-  latitude: 4.6250383,
-  longitude: -74.1935744
-};
+// Wedding day as calendar parts, used by the month calendar.
+export const WEDDING_YEAR = 2027;
+export const WEDDING_MONTH_INDEX = 0;
+export const WEDDING_DAY = 9;
 
 // Self-hosted background music: "Que Suerte Tenerte" by Fonseca.
 export const BACKGROUND_MUSIC_SRC = '/audio/que-suerte-tenerte.mp3';

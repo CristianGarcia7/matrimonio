@@ -1,0 +1,128 @@
+/* Combined event information card: date, both events and a month calendar. */
+.event-info {
+  @apply max-w-2xl;
+}
+
+.event-info .paper-card__content {
+  @apply px-6 py-14 sm:px-12;
+}
+
+.event-info__body {
+  @apply flex flex-col items-center gap-8 text-center;
+}
+
+.event-info__title {
+  @apply text-gold-deep max-w-60 text-xs leading-relaxed font-semibold tracking-[0.28em] text-balance uppercase sm:max-w-none sm:text-base sm:tracking-[0.32em];
+}
+
+.event-date-block {
+  @apply text-bottle flex flex-col items-center gap-2;
+}
+
+.event-date-block__weekday {
+  @apply pl-[0.42em] text-xs tracking-[0.42em] uppercase;
+}
+
+.event-date-block__row {
+  @apply flex items-center gap-4;
+}
+
+.event-date-block__day {
+  @apply font-display text-foil-deep text-[5.5rem] leading-[0.9] sm:text-8xl;
+}
+
+.event-date-block__month-year {
+  @apply border-gold-deep/70 flex flex-col items-start gap-1 border-l py-1 pl-4 text-left text-sm tracking-[0.32em] uppercase;
+}
+
+.event-info__events {
+  @apply grid w-full gap-8 sm:grid-cols-2 sm:gap-0;
+}
+
+/* Hairline between the two events: horizontal when stacked, vertical side by side. */
+.event-detail {
+  @apply flex flex-col items-center gap-1.5;
+}
+
+.event-detail + .event-detail {
+  @apply border-gold-deep/40 border-t pt-8 sm:border-t-0 sm:border-l sm:pt-0;
+}
+
+.event-detail__title {
+  @apply font-display text-bottle text-2xl leading-tight;
+}
+
+.event-detail__time {
+  @apply font-display text-foil-deep text-4xl;
+}
+
+.event-detail__venue {
+  @apply text-ink mt-1 text-xs font-semibold tracking-[0.18em] uppercase;
+}
+
+.event-detail__place {
+  @apply text-ink-muted text-sm italic;
+}
+
+/* Gold-ringed pills on paper: deep gold hairline plus an outer halo ring. */
+.event-detail__link,
+.event-info__calendar-link {
+  box-shadow:
+    0 0 0 3px var(--paper),
+    0 0 0 4px rgb(138 100 32 / 0.4);
+}
+
+/* Pinned to the bottom so both columns' links line up side by side. */
+.event-detail__link {
+  @apply border-gold-deep mt-auto min-h-11 px-6 text-[0.68rem];
+}
+
+.event-detail > :nth-last-child(2) {
+  @apply mb-4;
+}
+
+.event-info__calendar-link {
+  @apply border-gold gap-2.5 px-8;
+}
+
+.event-info__calendar-icon {
+  @apply size-4 shrink-0;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.4;
+  stroke-linecap: round;
+}
+
+.month-calendar {
+  @apply text-bottle w-full max-w-xs border-separate border-spacing-y-1 text-sm tabular-nums;
+}
+
+.month-calendar__title {
+  @apply font-script text-foil-deep mb-3 px-2 text-[2.6rem] leading-tight;
+}
+
+.month-calendar__weekday {
+  @apply text-gold-deep pb-2 text-[0.7rem] font-semibold tracking-[0.12em] uppercase;
+}
+
+.month-calendar__weekday abbr {
+  @apply no-underline;
+}
+
+.month-calendar__cell {
+  @apply h-9 text-center;
+}
+
+.month-calendar__day {
+  @apply relative inline-grid size-9 place-items-center;
+}
+
+.month-calendar__heart {
+  @apply absolute inset-0 m-auto size-9;
+  fill: var(--gold);
+  filter: drop-shadow(0 2px 3px rgb(138 100 32 / 0.45));
+}
+
+.month-calendar__number {
+  @apply text-bottle-deep relative -mt-0.5 font-semibold;
+}

@@ -47,19 +47,37 @@ export const invitationMessages = {
     eventDayDetail: 'Te esperamos con el corazón lleno de alegría.',
     finished: '¡Gracias por acompañarnos!',
     finishedDetail:
-      'Fue un honor compartir contigo el día más especial de nuestras vidas.',
-    calendarLinkLabel: 'Agregar al calendario',
-    calendarLinkAriaLabel:
-      'Agregar la boda a Google Calendar (se abre en una nueva pestaña)'
+      'Fue un honor compartir contigo el día más especial de nuestras vidas.'
   },
   events: {
-    title: 'Celebremos juntos',
-    subtitle: 'Te esperamos en estos momentos tan especiales',
+    title: 'Información del evento',
+    dateBlock: {
+      weekday: 'Sábado',
+      day: '9',
+      month: 'Enero',
+      year: '2027'
+    },
     timeLabel: 'Hora',
     mapsLinkLabel: 'Ver ubicación',
     mapsLinkAriaLabel: (venue: string) =>
       `Ver ubicación de ${venue} en Google Maps (se abre en una nueva pestaña)`,
-    mapTitle: (venue: string) => `Mapa de ${venue}`,
+    monthCalendar: {
+      title: 'Enero 2027',
+      ariaLabel: 'Calendario de enero de 2027',
+      weekdays: [
+        { short: 'Lu', full: 'lunes' },
+        { short: 'Ma', full: 'martes' },
+        { short: 'Mi', full: 'miércoles' },
+        { short: 'Ju', full: 'jueves' },
+        { short: 'Vi', full: 'viernes' },
+        { short: 'Sá', full: 'sábado' },
+        { short: 'Do', full: 'domingo' }
+      ],
+      weddingDayLabel: (day: number) => `${day} de enero, día de la boda`
+    },
+    calendarLinkLabel: 'Agregar al calendario',
+    calendarLinkAriaLabel:
+      'Agregar la boda a Google Calendar (se abre en una nueva pestaña)',
     ceremony: {
       title: 'Ceremonia religiosa',
       venue: 'Parroquia Juan Pablo II',

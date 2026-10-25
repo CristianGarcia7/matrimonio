@@ -4,7 +4,6 @@
 @import './components/atoms/hydrangea-floret.css';
 @import './components/atoms/ornament-divider.css';
 @import './components/atoms/wax-seal.css';
-@import './components/atoms/map-embed.css';
 @import './components/atoms/form-control.css';
 @import './components/molecules/paper-card.css';
 @import './components/molecules/envelope.css';
@@ -17,7 +16,7 @@
 @import './domains/invitation/announcement-section.css';
 @import './domains/invitation/gallery-section.css';
 @import './domains/invitation/gallery-lightbox.css';
-@import './domains/invitation/event-card.css';
+@import './domains/invitation/event-info.css';
 @import './domains/invitation/countdown.css';
 @import './domains/invitation/gift-section.css';
 @import './domains/invitation/dress-code-section.css';
