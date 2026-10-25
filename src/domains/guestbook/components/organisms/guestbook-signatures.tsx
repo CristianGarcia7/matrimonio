@@ -1,6 +1,8 @@
 import { guestbookMessages } from '../../messages';
 import { getGuestbookEntries } from '../../queries';
-import { SignatureCard } from '../molecules/signature-card';
+import { GuestbookBook } from './guestbook-book';
+
+import type { GuestbookBookEntry } from '../../types/guestbook-entry.types';
 
 import { APP_LOCALE, APP_TIME_ZONE } from '@/config/locale';
 import { formatDateTime } from '@/utils/format-date.util';
@@ -15,26 +17,15 @@ export async function GuestbookSignatures() {
     );
   }
 
-  if (entries.length === 0) {
-    return <p className="guestbook-signatures__notice">{signatures.empty}</p>;
-  }
+  // Only public fields cross to the client book; dates are formatted here
+  // so server and browser render the same text.
+  const bookEntries: GuestbookBookEntry[] = entries.map(entry => ({
+    id: entry.id,
+    name: entry.name,
+    message: entry.message,
+    createdAt: entry.createdAt,
+    formattedDate: formatDateTime(entry.createdAt, APP_LOCALE, APP_TIME_ZONE)
+  }));
 
-  return (
-    <ol className="guestbook-signatures" aria-label={signatures.listAriaLabel}>
-      {entries.map(entry => (
-        <li key={entry.id} className="guestbook-signatures__item">
-          <SignatureCard
-            name={entry.name}
-            message={entry.message}
-            createdAt={entry.createdAt}
-            formattedDate={formatDateTime(
-              entry.createdAt,
-              APP_LOCALE,
-              APP_TIME_ZONE
-            )}
-          />
-        </li>
-      ))}
-    </ol>
-  );
+  return <GuestbookBook entries={bookEntries} />;
 }

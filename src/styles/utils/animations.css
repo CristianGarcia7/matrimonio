@@ -127,7 +127,6 @@
   @supports (animation-timeline: view()) {
     .invitation-section > *,
     .guestbook-section > *,
-    .signature-card,
     .invitation-closing > * {
       animation: fade-rise linear both;
       animation-timeline: view();

@@ -17,10 +17,24 @@ export const guestbookMessages = {
   },
   signatures: {
     title: 'Mensajes de cariño',
-    listAriaLabel: 'Firmas de los invitados',
+    bookAriaLabel: 'Libro de firmas de los invitados',
+    bookRoleDescription: 'libro',
+    pageAriaLabel: (page: number) => `Página ${page}`,
+    pageListAriaLabel: (page: number) => `Firmas de la página ${page}`,
+    pageIndicator: (page: number, total: number) =>
+      `Página ${page} de ${total}`,
+    spreadIndicator: (left: number, right: number, total: number) =>
+      `Páginas ${left} y ${right} de ${total}`,
+    previousPage: 'Página anterior',
+    nextPage: 'Página siguiente',
+    readMore: 'Leer más',
+    readMoreAriaLabel: (name: string) => `Leer el mensaje completo de ${name}`,
+    closeMessage: 'Cerrar',
+    messageDialogTitle: (name: string) => `Mensaje de ${name}`,
+    emptyTitle: 'Sé el primero en dejarnos unas palabras…',
+    emptyBody:
+      'Este libro guarda los buenos deseos de quienes nos acompañan. Su primera página te espera.',
     loading: 'Cargando firmas…',
-    empty:
-      'Aún no hay firmas. ¡Sé la primera persona en dejarnos tus buenos deseos!',
     loadFailed:
       'No pudimos cargar las firmas en este momento. Inténtalo de nuevo más tarde.'
   },

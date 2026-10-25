@@ -25,5 +25,5 @@
 @import './domains/invitation/music-player.css';
 @import './domains/guestbook/guestbook-section.css';
 @import './domains/guestbook/guestbook-form.css';
-@import './domains/guestbook/signature-card.css';
+@import './domains/guestbook/guestbook-book.css';
 @import './utils/animations.css';
