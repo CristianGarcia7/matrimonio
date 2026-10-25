@@ -6,6 +6,7 @@ import { headers } from 'next/headers';
 import { guestbookEntrySchema } from './guestbook-entry.schema';
 import { guestbookMessages } from './messages';
 import { guestbookRepository } from './repositories/guestbook-repository';
+import { describeStorageError } from './repositories/storage-error.util';
 import {
   consumeSubmissionSlot,
   resolveClientKey
@@ -42,7 +43,9 @@ export async function signGuestbookAction(
       name: validated.data.name,
       message: validated.data.message
     });
-  } catch {
+  } catch (error) {
+    // eslint-disable-next-line no-console -- server-side diagnostics, no secrets
+    console.error(`Guestbook save failed: ${describeStorageError(error)}`);
     return {
       isSuccess: false,
       errorMessage: guestbookMessages.errors.saveFailed

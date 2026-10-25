@@ -20,6 +20,7 @@
 - [Overview](#-overview)
 - [Quick Start](#-quick-start)
 - [Docker](#-docker)
+- [Guestbook storage (Turso)](#guestbook-storage-turso)
 - [Deploy (PM2)](#deploy-pm2)
 - [Features](#-features)
 - [Architecture](#-architecture)
@@ -161,21 +162,72 @@ you set in `APP_PORT`).
 - **`.dockerignore`** excludes `node_modules`, build output, local env files,
   and VCS/tooling directories from the build context.
 - Telemetry is disabled with `NEXT_TELEMETRY_DISABLED=1`.
-- Guestbook signatures live in the SQLite file at `GUESTBOOK_DB_PATH`
-  (`/app/data/guestbook.db`), persisted in the `guestbook-data` named volume.
+- Guestbook signatures live in the local libSQL file at `GUESTBOOK_DB_PATH`
+  (`/app/data/guestbook.db`), persisted in the `guestbook-data` named volume,
+  unless `TURSO_DATABASE_URL` points to a hosted Turso database.
+
+---
+
+## Guestbook storage (Turso)
+
+Signatures are stored through [`@libsql/client`](https://github.com/tursodatabase/libsql-client-ts)
+behind the guestbook repository port. One adapter covers both targets:
+
+| Environment             | Storage                                               | Configuration                                     |
+| ----------------------- | ----------------------------------------------------- | ------------------------------------------------- |
+| Vercel (production)     | Hosted [Turso](https://turso.tech) database over HTTP | `TURSO_DATABASE_URL` + `TURSO_AUTH_TOKEN`         |
+| `pnpm dev`, PM2, Docker | Local SQLite file                                     | `GUESTBOOK_DB_PATH` (default `data/guestbook.db`) |
+
+When `TURSO_DATABASE_URL` is unset the app falls back to the local file, so no
+account is needed for development. The table and its index are created on the
+first request, and older databases get the `hidden_at` column added
+automatically. Vercel's filesystem is read-only, so production **must** use
+Turso.
+
+### Environment variables
+
+| Variable             | Required          | Purpose                                            |
+| -------------------- | ----------------- | -------------------------------------------------- |
+| `TURSO_DATABASE_URL` | On Vercel         | Database URL, e.g. `libsql://<db>-<org>.turso.io`  |
+| `TURSO_AUTH_TOKEN`   | With a remote URL | Database auth token (secret)                       |
+| `GUESTBOOK_DB_PATH`  | No                | Local file path when `TURSO_DATABASE_URL` is unset |
+
+### Setup
+
+1. Create the database and a token with the [Turso CLI](https://docs.turso.tech/cli/introduction):
+
+   ```bash
+   turso db create wedding-guestbook
+   turso db show wedding-guestbook --url     # -> TURSO_DATABASE_URL
+   turso db tokens create wedding-guestbook  # -> TURSO_AUTH_TOKEN
+   ```
+
+2. In Vercel, open the project → **Settings → Environment Variables** and add
+   `TURSO_DATABASE_URL` and `TURSO_AUTH_TOKEN` (Production, plus Preview if
+   previews should accept signatures). Then **redeploy**: environment
+   variables only apply to new deployments.
+3. Optional, for the moderation commands below or to run the app against Turso
+   locally: put both variables in `.env.local`, which is gitignored
+   (`.env*.local`).
+
+> **Never commit the auth token** (or paste it in issues, logs or chat). If it
+> leaks, revoke it with `turso db tokens invalidate wedding-guestbook` and set
+> the new one in Vercel.
 
 ---
 
 ## Deploy (PM2)
 
-The production target is a single AWS instance running the app with PM2.
-Guestbook signatures are stored in SQLite through Node's built-in `node:sqlite`,
-so no native build step is needed.
+Alternative to Vercel: a single server running the app with PM2. Guestbook
+signatures go to a local SQLite file through libSQL (prebuilt binaries, no
+native build step), or to Turso when `TURSO_DATABASE_URL` is set in the server
+environment.
 
-- **Node.js 24** is required (`node:sqlite`), plus pnpm and PM2 (`npm i -g pm2`).
+- **Node.js 24** is required, plus pnpm and PM2 (`npm i -g pm2`).
 - `ecosystem.config.cjs` runs **one** `next start` process on port 3000: the
-  guestbook rate limiter is in memory and SQLite expects a single writer.
-- The database lives outside the release directory
+  guestbook rate limiter is in memory and a local SQLite file expects a single
+  writer.
+- The local database lives outside the release directory
   (`GUESTBOOK_DB_PATH=/var/lib/wedding-invitation/guestbook.db`), so redeploys
   never wipe signatures. Locally it defaults to `data/guestbook.db`.
 

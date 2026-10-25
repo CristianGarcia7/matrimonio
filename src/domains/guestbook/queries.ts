@@ -1,6 +1,7 @@
 import { connection } from 'next/server';
 
 import { guestbookRepository } from './repositories/guestbook-repository';
+import { describeStorageError } from './repositories/storage-error.util';
 
 import type { GuestbookEntry } from './types/guestbook-entry.types';
 
@@ -14,7 +15,9 @@ export async function getGuestbookEntries(): Promise<GuestbookEntry[] | null> {
 
   try {
     return await guestbookRepository.list();
-  } catch {
+  } catch (error) {
+    // eslint-disable-next-line no-console -- server-side diagnostics, no secrets
+    console.error(`Guestbook read failed: ${describeStorageError(error)}`);
     return null;
   }
 }
