@@ -14,15 +14,23 @@ export function BlessingSection() {
         <div className="blessing-section__grid">
           <ParentsGroup
             label={blessing.groomParents.label}
-            names={blessing.groomParents.names}
+            parents={blessing.groomParents.parents}
             conjunction={blessing.conjunction}
+            heavenNote={blessing.groomParents.heavenNote}
           />
           <ParentsGroup
             label={blessing.brideParents.label}
-            names={blessing.brideParents.names}
+            parents={blessing.brideParents.parents}
             conjunction={blessing.conjunction}
+            heavenNote={blessing.brideParents.heavenNote}
           />
         </div>
+        <p className="blessing-section__remembrance">
+          <span className="blessing-section__star" aria-hidden="true">
+            ✦
+          </span>
+          {blessing.remembrance}
+        </p>
       </PaperCard>
     </section>
   );

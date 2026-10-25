@@ -66,11 +66,16 @@ export function InvitationCover({ onOpen }: InvitationCoverProps) {
             {monogram.secondInitial}
           </span>
           <span className="invitation-cover__card-names" aria-hidden="true">
-            {cover.names}
+            {`${cover.groomName} ${cover.ampersand} ${cover.brideName}`}
           </span>
         </Envelope>
         <div className="invitation-cover__text">
-          <p className="invitation-cover__names">{cover.names}</p>
+          {/* Each name stays whole; the line may break only around "&". */}
+          <p className="invitation-cover__names">
+            <span className="invitation-cover__name">{cover.groomName}</span>{' '}
+            {cover.ampersand}{' '}
+            <span className="invitation-cover__name">{cover.brideName}</span>
+          </p>
           <p className="invitation-cover__date">
             <time dateTime={CEREMONY_START_ISO}>{cover.date}</time>
           </p>

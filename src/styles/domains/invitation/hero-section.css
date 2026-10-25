@@ -44,13 +44,13 @@
 }
 
 .hero-section__names {
-  @apply font-display flex flex-col items-center text-[2.9rem] leading-[1.05] sm:text-6xl;
+  @apply font-display flex flex-col items-center text-[clamp(2.4rem,11vw,2.9rem)] leading-[1.05] sm:text-6xl;
 }
 
 /* Foil is applied per name: background-clip on the heading would also paint
    the visually hidden ampersand used for screen readers. */
 .hero-section__name {
-  @apply text-foil-deep;
+  @apply text-foil-deep max-w-full text-balance;
 }
 
 .hero-section__ampersand {
@@ -62,7 +62,32 @@
 }
 
 .hero-section__date {
-  @apply font-display text-ink text-2xl;
+  @apply my-1;
+}
+
+.hero-date {
+  @apply block;
+}
+
+.hero-date__visual {
+  @apply flex flex-col items-center gap-2;
+}
+
+.hero-date__weekday {
+  @apply text-gold-deep pl-[0.5em] text-xs font-semibold tracking-[0.5em] uppercase sm:text-sm;
+}
+
+.hero-date__row {
+  @apply flex items-center;
+}
+
+.hero-date__side {
+  @apply text-bottle w-[clamp(4.75rem,22vw,5.5rem)] text-center text-sm tracking-[0.3em] uppercase sm:w-32 sm:text-base;
+}
+
+/* Fine gold rules frame the day on both sides. */
+.hero-date__day {
+  @apply font-display text-foil-deep border-gold-deep/70 border-x px-[clamp(0.75rem,4vw,1.25rem)] text-[5.25rem] leading-[0.95] sm:px-8 sm:text-[7rem];
 }
 
 .hero-section__invitation {

@@ -6,8 +6,10 @@ export const invitationMessages = {
     ariaLabel: 'Monograma de Jose Ignacio y Patricia'
   },
   cover: {
-    dialogAriaLabel: 'Invitación de boda de Jose Ignacio y Patricia',
-    names: 'Jose Ignacio & Patricia',
+    dialogAriaLabel: 'Invitación de boda de Jose Ignacio y Patricia Yaima',
+    groomName: 'Jose Ignacio',
+    brideName: 'Patricia Yaima',
+    ampersand: '&',
     date: 'Sábado 9 de enero de 2027',
     greeting: 'Les invitamos cordialmente',
     openButton: 'Abrir invitación'
@@ -15,10 +17,16 @@ export const invitationMessages = {
   hero: {
     eyebrow: 'Nos casamos',
     groomName: 'Jose Ignacio',
-    brideName: 'Patricia',
+    brideName: 'Patricia Yaima',
     ampersand: '&',
     fullNames: 'Jose Ignacio Garcia Rincon · Patricia Yaima Rodriguez',
     date: 'Sábado 9 de enero de 2027',
+    dateParts: {
+      weekday: 'Sábado',
+      day: '9',
+      month: 'Enero',
+      year: '2027'
+    },
     invitation:
       'Con inmensa alegría queremos compartir contigo el día en que uniremos nuestras vidas. Nada nos haría más felices que celebrarlo a tu lado.'
   },
@@ -173,12 +181,34 @@ export const invitationMessages = {
     conjunction: 'y',
     groomParents: {
       label: 'Padres del novio',
-      names: ['Jose Agustin Garcia', 'Quintina Rincon']
+      parents: [
+        { name: 'Quintina Rincon' },
+        {
+          name: 'Jose Agustin Garcia',
+          isInHeaven: true,
+          remembranceLabel: '(fallecido)'
+        }
+      ],
+      heavenNote: 'desde el cielo'
     },
     brideParents: {
       label: 'Padres de la novia',
-      names: ['Vicente Yaima', 'Blanca Alcira Rodriguez']
-    }
+      parents: [
+        {
+          name: 'Vicente Yaima',
+          isInHeaven: true,
+          remembranceLabel: '(fallecido)'
+        },
+        {
+          name: 'Blanca Alcira Rodriguez',
+          isInHeaven: true,
+          remembranceLabel: '(fallecida)'
+        }
+      ],
+      heavenNote: 'nos acompañan desde el cielo'
+    },
+    remembrance:
+      'A quienes nos guían desde el cielo, gracias por seguir caminando con nosotros.'
   },
   closing: {
     message: 'Tu presencia es el regalo más grande que podemos recibir.',

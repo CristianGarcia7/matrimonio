@@ -35,7 +35,7 @@
 }
 
 .invitation-cover__card-names {
-  @apply font-display text-ink mt-1 text-[clamp(0.7rem,2.6vw,0.95rem)] tracking-[0.18em] uppercase;
+  @apply font-display text-ink mt-1 px-2 text-center text-[clamp(0.62rem,2.3vw,0.9rem)] tracking-[0.14em] text-balance uppercase;
 }
 
 /* Low landscape phones: envelope beside the text instead of above it. */
@@ -80,15 +80,28 @@
 }
 
 .invitation-cover__names {
-  @apply font-display text-foil-bright text-[2.5rem] leading-[1.1] text-balance sm:text-5xl;
+  @apply font-display text-foil-bright text-[clamp(2.1rem,9.5vw,2.5rem)] leading-[1.1] text-balance sm:text-5xl;
+}
+
+.invitation-cover__name {
+  @apply whitespace-nowrap;
 }
 
 .invitation-cover__date {
-  @apply text-ivory/90 text-xs tracking-[0.3em] uppercase;
+  @apply text-ivory text-[clamp(0.95rem,3.8vw,1.15rem)] font-medium tracking-[0.28em] uppercase;
 }
 
+/* Thin script needs size, a light colour and a soft dark halo to stand
+   clear of the green sky and the gold line art behind it. */
 .invitation-cover__greeting {
-  @apply font-script text-sage text-3xl;
+  @apply font-script text-ivory text-[clamp(1.6rem,7vw,2.2rem)] leading-tight;
+}
+
+.invitation-cover__date,
+.invitation-cover__greeting {
+  text-shadow:
+    0 0 0.35em color-mix(in oklab, var(--bottle-deep) 90%, transparent),
+    0 1px 2px color-mix(in oklab, var(--bottle-deep) 85%, transparent);
 }
 
 .invitation-cover__text,

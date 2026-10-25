@@ -21,3 +21,19 @@
 .parents-group__conjunction {
   @apply font-script text-sage-deep block text-2xl;
 }
+
+.parents-group__star {
+  @apply text-gold-deep ml-1.5 align-super text-[0.5em];
+}
+
+.parents-group__heaven-note {
+  @apply font-script text-gold-deep block text-[1.45rem] leading-tight text-balance;
+}
+
+.blessing-section__remembrance {
+  @apply text-ink-muted mx-auto mt-10 max-w-sm text-center text-base leading-relaxed italic text-balance;
+}
+
+.blessing-section__star {
+  @apply text-gold-deep mb-2 block text-sm not-italic;
+}

@@ -27,13 +27,15 @@ html:has(.gallery-lightbox[open]) {
   @apply hover:bg-gold hover:text-bottle focus-visible:outline-gold focus-visible:outline-2 focus-visible:outline-offset-2;
 }
 
+/* The caption keeps its real height; the image row takes what is left, so
+   captions of any length never push the photo out of view. */
 .gallery-lightbox__figure {
-  @apply col-span-3 col-start-1 row-start-2 flex h-full min-h-0 flex-col items-center justify-center gap-3 px-4 pb-6;
+  @apply col-span-3 col-start-1 row-start-2 grid h-full min-h-0 grid-rows-[minmax(0,auto)_auto] content-center justify-items-center gap-3 px-4 pb-6;
   touch-action: pan-y;
 }
 
 .gallery-lightbox__image {
-  @apply border-paper h-auto max-h-[calc(100dvh-12rem)] w-auto max-w-full rounded-[3px] border-[6px] object-contain shadow-2xl select-none;
+  @apply border-paper h-auto max-h-full w-auto max-w-full rounded-[3px] border-[6px] object-contain shadow-2xl select-none;
 }
 
 .gallery-lightbox__caption {

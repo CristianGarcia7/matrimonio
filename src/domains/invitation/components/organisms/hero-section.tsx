@@ -3,6 +3,7 @@ import { WaxSeal } from '@/components/atoms/wax-seal';
 import { PaperCard } from '@/components/molecules/paper-card';
 
 import { ScriptFlourish } from '../atoms/script-flourish';
+import { HeroDate } from '../molecules/hero-date';
 import { invitationMessages } from '../../messages';
 import { CEREMONY_START_ISO } from '../../wedding-details';
 
@@ -37,7 +38,11 @@ export function HeroSection() {
           <p className="hero-section__full-names">{hero.fullNames}</p>
           <OrnamentDivider />
           <p className="hero-section__date">
-            <time dateTime={CEREMONY_START_ISO}>{hero.date}</time>
+            <HeroDate
+              dateTime={CEREMONY_START_ISO}
+              label={hero.date}
+              {...hero.dateParts}
+            />
           </p>
           <p className="hero-section__invitation">{hero.invitation}</p>
         </div>
