@@ -2,20 +2,29 @@ import { PaperCard } from '@/components/molecules/paper-card';
 import { cn } from '@/lib/utils';
 
 import { invitationMessages } from '../../messages';
-import { WEDDING_PARTY } from '../../wedding-party';
-import { WeddingPartyCard } from '../molecules/wedding-party-card';
 
-const AVOIDED_COLORS = ['white', 'black'] as const;
+// Reserved for the bride (white, ivory) and the wedding party (bottle green,
+// blush); black is avoided as well.
+const AVOIDED_COLORS = [
+  'white',
+  'ivory',
+  'black',
+  'bottleGreen',
+  'blush'
+] as const;
 
 const AVOIDED_SWATCH_CLASSES: Record<(typeof AVOIDED_COLORS)[number], string> =
   {
     white: 'dress-code__avoided-swatch--white',
-    black: 'dress-code__avoided-swatch--black'
+    ivory: 'dress-code__avoided-swatch--ivory',
+    black: 'dress-code__avoided-swatch--black',
+    bottleGreen: 'dress-code__avoided-swatch--bottle-green',
+    blush: 'dress-code__avoided-swatch--blush'
   };
 
 export function DressCodeSection() {
   const { dressCode } = invitationMessages;
-  const { guests, party } = dressCode;
+  const { guests } = dressCode;
 
   return (
     <section className="invitation-section" aria-labelledby="dress-code-title">
@@ -47,30 +56,6 @@ export function DressCodeSection() {
                   </span>
                 </li>
               ))}
-            </ul>
-          </div>
-
-          <div className="dress-code__party">
-            <h3 className="dress-code__party-title">{party.title}</h3>
-            <ul className="dress-code__party-grid">
-              {WEDDING_PARTY.map(member => {
-                const role = party.roles[member.role];
-                return (
-                  <WeddingPartyCard
-                    key={member.role}
-                    role={member.role}
-                    name={role.name}
-                    description={role.description}
-                    garment={member.garment}
-                    hasBoutonniere={member.hasBoutonniere}
-                    swatches={member.colors.map(color => ({
-                      color,
-                      name: party.colorNames[color]
-                    }))}
-                    swatchesLabel={party.swatchesLabel(role.name)}
-                  />
-                );
-              })}
             </ul>
           </div>
         </div>
