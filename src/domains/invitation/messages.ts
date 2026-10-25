@@ -69,7 +69,7 @@ export const invitationMessages = {
     reception: {
       title: 'Recepción',
       venue: 'Eventos Adonais',
-      time: '6:40 p. m.'
+      time: '7:00 p. m.'
     }
   },
   gallery: {
@@ -104,11 +104,11 @@ export const invitationMessages = {
   calendar: {
     eventTitle: 'Boda de Jose Ignacio & Patricia',
     details:
-      'Ceremonia religiosa a las 5:30 p. m. en la Parroquia Juan Pablo II (Barrio Margaritas). Recepción a las 6:40 p. m. en Eventos Adonais.',
+      'Ceremonia religiosa a las 5:30 p. m. en la Parroquia Juan Pablo II (Barrio Margaritas). Recepción a las 7:00 p. m. en Eventos Adonais.',
     location: 'Parroquia Juan Pablo II, Barrio Margaritas'
   },
   blessing: {
-    title: 'Con la bendición de nuestros padres',
+    title: 'Con la bendición de Dios y nuestros padres',
     conjunction: 'y',
     groomParents: {
       label: 'Padres del novio',
