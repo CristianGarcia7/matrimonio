@@ -11,7 +11,7 @@
 }
 
 .gallery-lightbox::backdrop {
-  background-color: color-mix(in oklab, var(--midnight) 94%, transparent);
+  background-color: color-mix(in oklab, var(--bottle-deep) 94%, transparent);
 }
 
 html:has(.gallery-lightbox[open]) {
@@ -24,7 +24,7 @@ html:has(.gallery-lightbox[open]) {
 
 .gallery-lightbox__close {
   @apply border-gold/60 text-gold col-start-3 row-start-1 mr-4 rounded-full border px-4 py-2 text-[0.7rem] tracking-[0.25em] uppercase;
-  @apply hover:bg-gold hover:text-navy focus-visible:outline-gold focus-visible:outline-2 focus-visible:outline-offset-2;
+  @apply hover:bg-gold hover:text-bottle focus-visible:outline-gold focus-visible:outline-2 focus-visible:outline-offset-2;
 }
 
 .gallery-lightbox__figure {
@@ -41,8 +41,8 @@ html:has(.gallery-lightbox[open]) {
 }
 
 .gallery-lightbox__nav {
-  @apply border-gold/50 bg-navy/70 text-gold z-10 row-start-2 grid size-11 place-items-center rounded-full border backdrop-blur-sm;
-  @apply hover:bg-gold hover:text-navy focus-visible:outline-gold focus-visible:outline-2 focus-visible:outline-offset-2;
+  @apply border-gold/50 bg-bottle/70 text-gold z-10 row-start-2 grid size-11 place-items-center rounded-full border backdrop-blur-sm;
+  @apply hover:bg-gold hover:text-bottle focus-visible:outline-gold focus-visible:outline-2 focus-visible:outline-offset-2;
 }
 
 .gallery-lightbox__nav svg {

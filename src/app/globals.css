@@ -9,16 +9,16 @@
   --font-display: var(--font-viaoda), ui-serif, Georgia, serif;
   --font-script: var(--font-pinyon), ui-serif, Georgia, serif;
 
-  --color-midnight: var(--midnight);
-  --color-navy: var(--navy);
-  --color-deep-blue: var(--deep-blue);
+  --color-bottle-deep: var(--bottle-deep);
+  --color-bottle: var(--bottle);
+  --color-bottle-light: var(--bottle-light);
   --color-ivory: var(--ivory);
   --color-paper: var(--paper);
   --color-paper-shade: var(--paper-shade);
   --color-ink: var(--ink);
   --color-ink-muted: var(--ink-muted);
-  --color-hydrangea: var(--hydrangea);
-  --color-hydrangea-deep: var(--hydrangea-deep);
+  --color-sage: var(--sage);
+  --color-sage-deep: var(--sage-deep);
   --color-gold: var(--gold);
   --color-gold-deep: var(--gold-deep);
 
@@ -52,26 +52,27 @@
 :root {
   --radius: 0.625rem;
 
-  /* Night-blue palette. Contrast notes (WCAG):
-     ivory on navy 14.4:1, gold on navy 8:1, hydrangea on navy 9:1,
-     ink on paper 13.6:1, ink-muted on paper 6.3:1, gold-deep on paper 5:1. */
-  --midnight: #04122a;
-  --navy: #0b1f3a;
-  --deep-blue: #1b3a66;
+  /* Bottle-green palette. Contrast notes (WCAG):
+     ivory on bottle 12.8:1, gold on bottle 7.2:1, sage on bottle 7.8:1,
+     sage on bottle-light 4.5:1, ink on paper 14.3:1, ink-muted on paper 6.5:1,
+     gold-deep on paper 5:1, sage-deep on paper 5.7:1. */
+  --bottle-deep: #061a12;
+  --bottle: #0b2e22;
+  --bottle-light: #1a5640;
   --ivory: #f4efe6;
   --paper: #faf6ee;
   --paper-shade: #ece3d2;
-  --ink: #14284b;
-  --ink-muted: #4b5b78;
-  --hydrangea: #a9c1e3;
-  --hydrangea-deep: #4f72a6;
+  --ink: #13291f;
+  --ink-muted: #4a5e54;
+  --sage: #a9c3b0;
+  --sage-deep: #3f6b54;
   --gold: #d4b06a;
   --gold-deep: #8a6420;
 
   /* Ornament strokes; sky contexts override them with brighter tones. */
   --ornament-line: var(--gold-deep);
-  --ornament-petal: color-mix(in oklab, var(--hydrangea) 60%, transparent);
-  --ornament-petal-stroke: var(--hydrangea-deep);
+  --ornament-petal: color-mix(in oklab, var(--sage) 60%, transparent);
+  --ornament-petal-stroke: var(--sage-deep);
 
   /* Foil gradients for display text: bright on the night sky, deep on paper
      (darkest stops keep large text above 3:1 on its background). */
@@ -92,24 +93,24 @@
     #6e4f17 100%
   );
 
-  --background: var(--midnight);
+  --background: var(--bottle-deep);
   --foreground: var(--ivory);
   --card: var(--paper);
   --card-foreground: var(--ink);
   --popover: var(--paper);
   --popover-foreground: var(--ink);
-  --primary: var(--navy);
+  --primary: var(--bottle);
   --primary-foreground: var(--ivory);
   --secondary: var(--paper-shade);
   --secondary-foreground: var(--ink);
   --muted: var(--paper-shade);
   --muted-foreground: var(--ink-muted);
-  --accent: #e3ebf6;
+  --accent: #e4ede6;
   --accent-foreground: var(--ink);
   --destructive: #a33a2a;
   --border: #d9cdb5;
-  --input: #6b7a93;
-  /* Focus ring: 3.7:1 on paper and 4.2:1 on navy. */
+  --input: #6b7f74;
+  /* Focus ring: 3.7:1 on paper, 3.7:1 on bottle and 4.6:1 on bottle-deep. */
   --ring: #a07a30;
 }
 
@@ -141,9 +142,9 @@
     @apply border-border outline-ring/50;
   }
   html {
-    @apply bg-midnight;
+    @apply bg-bottle-deep;
   }
-  /* No body background: <html> already paints midnight, and a body background
+  /* No body background: <html> already paints bottle-deep green, and a body background
      would cover the fixed night sky that sits at a negative z-index. */
   body {
     @apply text-foreground font-sans;
@@ -152,6 +153,6 @@
     @apply outline-ring outline-2 outline-offset-2;
   }
   ::selection {
-    @apply bg-hydrangea text-ink;
+    @apply bg-sage text-ink;
   }
 }

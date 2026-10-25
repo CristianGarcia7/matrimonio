@@ -11,11 +11,11 @@
   @apply px-4 py-6 sm:py-10;
 }
 
-/* Sky contexts use brighter ornament tones for legibility on navy. */
+/* Sky contexts use brighter ornament tones for legibility on bottle. */
 .section-heading--sky,
 .invitation-cover,
 .invitation-closing {
   --ornament-line: var(--gold);
-  --ornament-petal: color-mix(in oklab, var(--hydrangea) 35%, transparent);
-  --ornament-petal-stroke: var(--hydrangea);
+  --ornament-petal: color-mix(in oklab, var(--sage) 35%, transparent);
+  --ornament-petal-stroke: var(--sage);
 }

@@ -26,7 +26,7 @@
   @apply border-gold/70 relative grid aspect-square w-full max-w-24 place-items-center overflow-hidden rounded-full border;
   background-image: radial-gradient(
     circle at 50% 30%,
-    color-mix(in oklab, var(--deep-blue) 70%, transparent),
+    color-mix(in oklab, var(--bottle-light) 70%, transparent),
     transparent 75%
   );
 }
@@ -41,7 +41,7 @@
 }
 
 .countdown-unit__label {
-  @apply text-hydrangea text-[0.65rem] tracking-[0.2em] uppercase;
+  @apply text-sage text-[0.65rem] tracking-[0.2em] uppercase;
 }
 
 .countdown-section__actions {

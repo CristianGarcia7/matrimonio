@@ -13,7 +13,7 @@
       rgb(212 176 106 / 0.08) 0 1px,
       transparent 1px 10px
     ),
-    linear-gradient(160deg, var(--deep-blue), var(--navy));
+    linear-gradient(160deg, var(--bottle-light), var(--bottle));
   box-shadow: 0 34px 50px -24px rgb(0 0 0 / 0.85);
 }
 

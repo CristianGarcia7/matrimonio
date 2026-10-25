@@ -58,7 +58,7 @@
 
 .envelope-rain__envelope {
   @apply block h-auto w-full;
-  filter: drop-shadow(0 6px 6px rgb(20 40 75 / 0.18));
+  filter: drop-shadow(0 6px 6px rgb(19 41 31 / 0.18));
 }
 
 @media (prefers-reduced-motion: no-preference) {

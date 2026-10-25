@@ -19,5 +19,5 @@
 }
 
 .parents-group__conjunction {
-  @apply font-script text-hydrangea-deep block text-2xl;
+  @apply font-script text-sage-deep block text-2xl;
 }

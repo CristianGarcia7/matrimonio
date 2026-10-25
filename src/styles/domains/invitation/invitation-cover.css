@@ -1,5 +1,5 @@
 .invitation-cover {
-  @apply bg-midnight fixed inset-0 isolate z-50 flex overflow-x-hidden overflow-y-auto overscroll-contain;
+  @apply bg-bottle-deep fixed inset-0 isolate z-50 flex overflow-x-hidden overflow-y-auto overscroll-contain;
   /* Dissolve once the card has risen; keep in sync with the hook timeline. */
   transition:
     opacity 750ms ease 1750ms,
@@ -72,7 +72,7 @@
 }
 
 .invitation-cover__card-ampersand {
-  @apply text-hydrangea-deep mx-1 text-[0.6em];
+  @apply text-sage-deep mx-1 text-[0.6em];
 }
 
 .invitation-cover__text {
@@ -88,7 +88,7 @@
 }
 
 .invitation-cover__greeting {
-  @apply font-script text-hydrangea text-3xl;
+  @apply font-script text-sage text-3xl;
 }
 
 .invitation-cover__text,
@@ -188,7 +188,7 @@
 
 .invitation-cover__button {
   @apply border-gold bg-gold/10 text-gold inline-flex min-h-12 items-center justify-center rounded-full border px-9 text-xs tracking-[0.3em] uppercase transition-colors;
-  @apply hover:bg-gold hover:text-navy focus-visible:outline-gold focus-visible:outline-2 focus-visible:outline-offset-4;
+  @apply hover:bg-gold hover:text-bottle focus-visible:outline-gold focus-visible:outline-2 focus-visible:outline-offset-4;
 }
 
 /* Without JavaScript the envelope could never open: show the page instead. */

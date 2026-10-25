@@ -207,13 +207,13 @@ the player stays hidden and the page works normally.
 - Background: Photochrom print of Neuschwanstein Castle (c. 1890–1900), Detroit
   Publishing Co. / Library of Congress, public domain, via Wikimedia Commons
   (`File:Neuschwanstein Castle LOC print rotated.jpg`). Desaturated, toned
-  ivory/powder blue with a soft glow, sky keyed to transparency and the forest
+  warm ivory/pale sage (luminance duotone) with a soft glow, sky keyed to transparency and the forest
   faded out (`public/images/neuschwanstein-photochrom-1600.webp`,
   `neuschwanstein-photochrom-900.webp`, a portrait crop centred on the castle).
 - Watercolor florals: Pierre-Joseph Redouté, public domain, via Wikimedia
   Commons — `File:Redoute - Rosa centifolia foliacea.jpg` (_Les Roses_) and
   `File:T3 24 Hortensia opuloides par Pierre-Joseph Redouté.jpeg`. Cropped, paper
-  keyed to transparency and recoloured to hydrangea blue with sage leaves
+  keyed to transparency and recoloured to ivory and blush cream petals with sage leaves
   (`public/images/watercolor-rose.webp`, `watercolor-hydrangea.webp`).
 - Music: "Que Suerte Tenerte", Fonseca (see above).
 - The paper grain is generated in CSS (inline SVG `feTurbulence`).

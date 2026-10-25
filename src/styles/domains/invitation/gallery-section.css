@@ -47,7 +47,7 @@
 }
 
 .gallery-deck-card__link {
-  @apply ring-gold/70 bg-navy relative block size-full overflow-hidden rounded-2xl ring-1;
+  @apply ring-gold/70 bg-bottle relative block size-full overflow-hidden rounded-2xl ring-1;
   @apply focus-visible:outline-gold focus-visible:outline-2 focus-visible:outline-offset-4;
   box-shadow:
     0 26px 40px -22px rgb(0 0 0 / 0.85),
@@ -81,7 +81,7 @@
 /* Swipe is the primary gesture on phones; arrows appear from tablet up. */
 .gallery-deck__arrow {
   @apply border-gold/60 text-gold hidden size-9 flex-none items-center justify-center rounded-full border transition-colors md:flex;
-  @apply hover:bg-gold hover:text-navy focus-visible:outline-gold focus-visible:outline-2 focus-visible:outline-offset-2;
+  @apply hover:bg-gold hover:text-bottle focus-visible:outline-gold focus-visible:outline-2 focus-visible:outline-offset-2;
 }
 
 .gallery-deck__arrow svg {

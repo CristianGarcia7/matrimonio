@@ -1,12 +1,12 @@
 .external-link {
-  @apply border-navy bg-navy text-ivory inline-flex min-h-12 items-center justify-center gap-2 rounded-full border px-7 text-xs tracking-[0.22em] uppercase transition-colors;
-  @apply hover:bg-deep-blue focus-visible:outline-ring focus-visible:outline-2 focus-visible:outline-offset-2;
+  @apply border-bottle bg-bottle text-ivory inline-flex min-h-12 items-center justify-center gap-2 rounded-full border px-7 text-xs tracking-[0.22em] uppercase transition-colors;
+  @apply hover:bg-bottle-light focus-visible:outline-ring focus-visible:outline-2 focus-visible:outline-offset-2;
 }
 
 .external-link--outline {
-  @apply text-ink hover:bg-navy hover:text-ivory bg-transparent;
+  @apply text-ink hover:bg-bottle hover:text-ivory bg-transparent;
 }
 
 .external-link--gold {
-  @apply border-gold bg-gold/10 text-gold hover:bg-gold hover:text-navy;
+  @apply border-gold bg-gold/10 text-gold hover:bg-gold hover:text-bottle;
 }

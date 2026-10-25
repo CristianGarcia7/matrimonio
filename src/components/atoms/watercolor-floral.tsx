@@ -12,7 +12,7 @@ interface WatercolorFloralProps {
 }
 
 // Pierre-Joseph Redouté plates (public domain, see README), keyed to alpha
-// and recoloured to hydrangea blue with sage leaves.
+// and recoloured to ivory and blush cream with sage leaves.
 const FLORAL_SOURCES = {
   rose: { src: '/images/watercolor-rose.webp', width: 720, height: 397 },
   hydrangea: {
