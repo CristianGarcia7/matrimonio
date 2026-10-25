@@ -19,10 +19,6 @@
   overflow-wrap: anywhere;
 }
 
-.invitation-closing__credit--backdrop {
-  @apply mt-0;
-}
-
 .invitation-closing__credit-link {
   @apply decoration-sage/50 hover:text-ivory underline underline-offset-2;
 }

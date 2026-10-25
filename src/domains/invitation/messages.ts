@@ -140,9 +140,7 @@ export const invitationMessages = {
   closing: {
     message: 'Tu presencia es el regalo más grande que podemos recibir.',
     thanks: 'Gracias por ser parte de nuestra historia',
-    signature: 'Jose Ignacio & Patricia',
-    backdropCredit:
-      'Ilustraciones: fotocromo del castillo de Neuschwanstein (Detroit Publishing Co., Biblioteca del Congreso) y acuarelas de Pierre-Joseph Redouté; dominio público, vía Wikimedia Commons.'
+    signature: 'Jose Ignacio & Patricia'
   },
   music: {
     songTitle: 'Que Suerte Tenerte',

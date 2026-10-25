@@ -20,9 +20,6 @@ export function InvitationClosing() {
       />
       <p className="invitation-closing__signature">{closing.signature}</p>
       <p className="invitation-closing__credit">{music.credit}</p>
-      <p className="invitation-closing__credit invitation-closing__credit--backdrop">
-        {closing.backdropCredit}
-      </p>
     </footer>
   );
 }

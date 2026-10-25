@@ -37,7 +37,7 @@ export function InvitationCover({ onOpen }: InvitationCoverProps) {
       aria-modal="true"
       aria-label={cover.dialogAriaLabel}
     >
-      <NightSky isContained isBackdropVivid />
+      <NightSky isContained hasFrame />
       <span className="invitation-cover__petals" aria-hidden="true">
         {PETAL_KEYS.map(key => (
           <span key={key} className="invitation-cover__petal" />

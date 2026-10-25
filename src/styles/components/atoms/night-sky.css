@@ -18,43 +18,55 @@
   @apply absolute;
 }
 
-/* Library of Congress photochrom of Neuschwanstein (public domain), toned
-   warm ivory/pale sage with a transparent sky: screen blending lets the starry
-   bottle show through, and the mask fades its top into the stars. */
-.night-sky__castle {
-  @apply absolute inset-x-0 top-[28%] -bottom-[18%] bg-cover bg-no-repeat opacity-20 mix-blend-screen;
-  background-image: url('/images/neuschwanstein-photochrom-900.webp');
-  /* Castle kept right of centre when narrow screens crop the sides; the
-     faded forest runs off the bottom edge. */
-  background-position: 62% 0%;
-  mask-image: linear-gradient(to bottom, transparent, #000 22%);
-}
-
-.night-sky--vivid .night-sky__castle {
-  @apply opacity-30;
-}
-
-@media (min-width: 48rem) {
-  .night-sky__castle {
-    background-image: url('/images/neuschwanstein-photochrom-1600.webp');
-  }
-}
-
-/* Oversized watercolor florals, barely there behind the stars. */
+/* Faint gold olive branches drifting behind the stars. */
 .night-sky__botanicals {
-  @apply absolute inset-0 opacity-5;
+  @apply text-gold absolute inset-0 opacity-[0.08];
 }
 
-.night-sky__floral {
-  @apply absolute h-auto w-[26rem] max-w-none md:w-[40rem];
+.night-sky__branch {
+  @apply absolute h-auto w-40 md:w-56;
 }
 
-.night-sky__floral--start {
-  @apply -top-10 -left-24 rotate-[-18deg];
+.night-sky__branch--start {
+  @apply -top-6 -left-6 rotate-[148deg];
 }
 
-.night-sky__floral--end {
-  @apply -right-28 bottom-[34%] rotate-[160deg];
+.night-sky__branch--end {
+  @apply top-[30%] -right-8 rotate-[-24deg];
+}
+
+.night-sky__branch--low {
+  @apply bottom-[-4rem] left-[18%] hidden rotate-[62deg] md:block;
+}
+
+/* Cover only: a fine double gold rule with bouquets tucked in each corner. */
+.night-sky__frame {
+  @apply text-gold absolute inset-3 rounded-[1.5rem] border border-current opacity-60 sm:inset-6;
+}
+
+.night-sky__frame::after {
+  @apply absolute inset-1.5 rounded-[1.2rem] border border-current opacity-40;
+  content: '';
+}
+
+.night-sky__frame-corner {
+  @apply absolute size-28 sm:size-40;
+}
+
+.night-sky__frame-corner--top-start {
+  @apply -top-2 -left-2;
+}
+
+.night-sky__frame-corner--top-end {
+  @apply -top-2 -right-2 -scale-x-100;
+}
+
+.night-sky__frame-corner--bottom-start {
+  @apply -bottom-2 -left-2 -scale-y-100;
+}
+
+.night-sky__frame-corner--bottom-end {
+  @apply -right-2 -bottom-2 rotate-180;
 }
 
 /* Fine fractal noise, overlay-blended at half strength so the bottle green reads as

@@ -1,19 +1,27 @@
 import { cn } from '@/lib/utils';
 
-import { WatercolorFloral } from './watercolor-floral';
+import { GoldBouquet } from './gold-bouquet';
+import { GoldBranch } from './gold-branch';
 
 interface NightSkyProps {
   isContained?: boolean;
-  isBackdropVivid?: boolean;
+  hasFrame?: boolean;
   className?: string;
 }
 
-// Decorative starry backdrop, painted back to front: a faint moonlit
-// castle rising from the bottom, oversized watercolor florals, a stationery
-// grain and the gold star dust. Static CSS layers only, no canvas or animation.
+const FRAME_CORNER_CLASSES = [
+  'night-sky__frame-corner--top-start',
+  'night-sky__frame-corner--top-end',
+  'night-sky__frame-corner--bottom-start',
+  'night-sky__frame-corner--bottom-end'
+];
+
+// Decorative starry backdrop, painted back to front: faint gold olive
+// branches, a stationery grain and the gold star dust; optionally a gold
+// botanical frame (used by the envelope cover). Static layers only.
 export function NightSky({
   isContained = false,
-  isBackdropVivid = false,
+  hasFrame = false,
   className
 }: NightSkyProps) {
   return (
@@ -21,27 +29,28 @@ export function NightSky({
       className={cn(
         'night-sky',
         isContained && 'night-sky--contained',
-        isBackdropVivid && 'night-sky--vivid',
         className
       )}
       aria-hidden="true"
     >
-      <span className="night-sky__castle" />
       <span className="night-sky__botanicals">
-        <WatercolorFloral
-          variant="rose"
-          sizes="(min-width: 48rem) 40rem, 26rem"
-          className="night-sky__floral night-sky__floral--start"
-        />
-        <WatercolorFloral
-          variant="hydrangea"
-          sizes="(min-width: 48rem) 40rem, 26rem"
-          className="night-sky__floral night-sky__floral--end"
-        />
+        <GoldBranch className="night-sky__branch night-sky__branch--start" />
+        <GoldBranch className="night-sky__branch night-sky__branch--end" />
+        <GoldBranch className="night-sky__branch night-sky__branch--low" />
       </span>
       <span className="night-sky__grain" />
       <span className="night-sky__dust night-sky__dust--near" />
       <span className="night-sky__dust night-sky__dust--far" />
+      {hasFrame && (
+        <span className="night-sky__frame">
+          {FRAME_CORNER_CLASSES.map(cornerClass => (
+            <GoldBouquet
+              key={cornerClass}
+              className={cn('night-sky__frame-corner', cornerClass)}
+            />
+          ))}
+        </span>
+      )}
     </div>
   );
 }

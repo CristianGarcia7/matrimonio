@@ -1,6 +1,6 @@
 import type { ReactNode } from 'react';
 
-import { WatercolorFloral } from '@/components/atoms/watercolor-floral';
+import { GoldBouquet } from '@/components/atoms/gold-bouquet';
 import { cn } from '@/lib/utils';
 
 interface PaperCardProps {
@@ -9,7 +9,8 @@ interface PaperCardProps {
   className?: string;
 }
 
-// Ivory stationery card with a fine gold inner border and watercolor corners.
+// Ivory stationery card with a fine gold inner border and gold line-art
+// bouquets in two opposite corners.
 export function PaperCard({
   children,
   hasFlorals = true,
@@ -19,16 +20,8 @@ export function PaperCard({
     <div className={cn('paper-card', className)}>
       {hasFlorals && (
         <>
-          <WatercolorFloral
-            variant="rose"
-            sizes="9rem"
-            className="paper-card__corner paper-card__corner--start"
-          />
-          <WatercolorFloral
-            variant="hydrangea"
-            sizes="7rem"
-            className="paper-card__corner paper-card__corner--end"
-          />
+          <GoldBouquet className="paper-card__corner paper-card__corner--start" />
+          <GoldBouquet className="paper-card__corner paper-card__corner--end" />
         </>
       )}
       <div className="paper-card__content">{children}</div>
