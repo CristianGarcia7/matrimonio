@@ -191,6 +191,20 @@ pm2 save
 pm2 startup                      # once: run the printed command to start on boot
 ```
 
+**Reverse proxy (nginx)**: forward the client IP. The guestbook rate limiter
+keys on `X-Real-IP`, which nginx must set from `$remote_addr` (clients cannot
+forge it); otherwise it uses the last `X-Forwarded-For` entry, and without
+either header all guests share one generous budget.
+
+```nginx
+location / {
+    proxy_pass http://127.0.0.1:3000;
+    proxy_set_header Host $host;
+    proxy_set_header X-Real-IP $remote_addr;
+    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+}
+```
+
 **Backups**: copy the `.db` file. Either use
 `sqlite3 /var/lib/wedding-invitation/guestbook.db ".backup guestbook-backup.db"`
 while the app runs, or `pm2 stop wedding-invitation` before copying the file
