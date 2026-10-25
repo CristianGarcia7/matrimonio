@@ -123,15 +123,24 @@ export const invitationMessages = {
     guests: {
       title: 'Invitados',
       style: 'Formal',
-      body: 'Con cariño les pedimos evitar estos colores: el blanco y el marfil están reservados para la novia, y el verde botella y el rosa palo, para nuestro cortejo.'
+      body: 'Con cariño les pedimos evitar estos colores, reservados para los novios, el cortejo y la familia.'
     },
     avoidLabel: 'No usar',
+    groups: {
+      women: 'Mujeres',
+      men: 'Hombres'
+    },
     colors: {
       white: 'Blanco',
-      ivory: 'Marfil',
-      black: 'Negro',
-      bottleGreen: 'Verde botella',
-      blush: 'Rosa palo'
+      champagne: 'Champagne',
+      darkGreen: 'Verde oscuro',
+      emeraldGreen: 'Verde esmeralda',
+      dustyRose: 'Rosa empolvado',
+      oldRose: 'Palo de rosa',
+      lightGray: 'Gris claro',
+      beige: 'Beige',
+      darkGray: 'Gris oscuro',
+      charcoal: 'Gris carbón'
     }
   },
   calendar: {

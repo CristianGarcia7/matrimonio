@@ -40,22 +40,34 @@
   @apply text-ink-muted max-w-sm text-base leading-relaxed text-pretty italic;
 }
 
-/* Fixed-width items wrap 3 + 2 (centered) on phones, 5 in a row from sm. */
+.dress-code__groups {
+  @apply mt-2 flex w-full flex-col items-center gap-8;
+}
+
+.dress-code__group {
+  @apply flex flex-col items-center gap-5;
+}
+
+.dress-code__group-title {
+  @apply font-display text-bottle text-xl leading-tight;
+}
+
+/* Fixed-width items: 3 per row (centered) on phones, one row from sm. */
 .dress-code__avoided {
-  @apply mt-2 flex flex-wrap items-start justify-center gap-x-3 gap-y-6 sm:gap-x-4;
+  @apply flex flex-wrap items-start justify-center gap-x-3 gap-y-5 sm:gap-x-2;
 }
 
 .dress-code__avoided-item {
-  @apply flex w-20 flex-col items-center gap-3 sm:w-22;
+  @apply flex w-20 flex-col items-center gap-3 sm:w-[4.75rem];
 }
 
 /* Round swatch struck through by a fine gold diagonal. */
 .dress-code__avoided-swatch {
-  @apply relative block size-14 overflow-hidden rounded-full sm:size-16;
+  @apply relative block size-12 overflow-hidden rounded-full;
   box-shadow:
-    0 0 0 4px var(--paper),
-    0 0 0 5px color-mix(in oklab, var(--gold-deep) 55%, transparent),
-    0 10px 18px -10px rgb(0 0 0 / 0.45);
+    0 0 0 3px var(--paper),
+    0 0 0 4px color-mix(in oklab, var(--gold-deep) 55%, transparent),
+    0 8px 16px -10px rgb(0 0 0 / 0.45);
 }
 
 .dress-code__avoided-swatch::after {
@@ -69,29 +81,51 @@
   background-color: #ffffff;
 }
 
-.dress-code__avoided-swatch--ivory {
+.dress-code__avoided-swatch--champagne {
   @apply border-ink-muted/25 border;
-  background-color: #f4ede1;
+  background-color: #f1e3c6;
 }
 
-.dress-code__avoided-swatch--black {
-  background-color: #111111;
+.dress-code__avoided-swatch--dark-green {
+  background-color: #1b3a2b;
 }
 
-.dress-code__avoided-swatch--bottle-green {
-  background-color: #1f4a36;
+.dress-code__avoided-swatch--emerald-green {
+  background-color: #1f7a57;
 }
 
-.dress-code__avoided-swatch--blush {
-  background-color: #e7b9b8;
+.dress-code__avoided-swatch--dusty-rose {
+  background-color: #e8c4c0;
+}
+
+.dress-code__avoided-swatch--old-rose {
+  background-color: #c98c8c;
+}
+
+.dress-code__avoided-swatch--light-gray {
+  background-color: #c7c8c9;
+}
+
+.dress-code__avoided-swatch--beige {
+  background-color: #d9c7a7;
+}
+
+.dress-code__avoided-swatch--dark-gray {
+  background-color: #5a5d61;
+}
+
+.dress-code__avoided-swatch--charcoal {
+  background-color: #36383b;
 }
 
 /* Light strike on the dark swatches. */
-.dress-code__avoided-swatch--black::after,
-.dress-code__avoided-swatch--bottle-green::after {
+.dress-code__avoided-swatch--dark-green::after,
+.dress-code__avoided-swatch--emerald-green::after,
+.dress-code__avoided-swatch--dark-gray::after,
+.dress-code__avoided-swatch--charcoal::after {
   background-color: var(--gold);
 }
 
 .dress-code__avoided-label {
-  @apply text-ink text-[0.7rem] leading-snug tracking-[0.2em] text-balance uppercase;
+  @apply text-ink text-[0.7rem] leading-snug tracking-[0.14em] text-balance uppercase sm:tracking-[0.06em];
 }
