@@ -15,7 +15,10 @@
     "prettier:format": "prettier --write .",
     "eslint:format": "eslint src --fix",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "build-storybook": "storybook build",
+    "guestbook:list": "node --env-file-if-exists=.env.local scripts/guestbook-admin.mjs list",
+    "guestbook:hide": "node --env-file-if-exists=.env.local scripts/guestbook-admin.mjs hide",
+    "guestbook:show": "node --env-file-if-exists=.env.local scripts/guestbook-admin.mjs show"
   },
   "dependencies": {
     "@commitlint/config-conventional": "19.8.1",

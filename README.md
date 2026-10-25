@@ -210,6 +210,23 @@ Turso.
    locally: put both variables in `.env.local`, which is gitignored
    (`.env*.local`).
 
+### Moderation (soft delete)
+
+`scripts/guestbook-admin.mjs` hides or restores signatures; nothing is ever
+hard-deleted. The commands read `TURSO_DATABASE_URL`/`TURSO_AUTH_TOKEN` from
+the environment or `.env.local` (or `GUESTBOOK_DB_PATH` for a local file) and
+never print them.
+
+```bash
+pnpm guestbook:list          # every entry; hidden ones are marked HIDDEN
+pnpm guestbook:hide <id>     # hide from the page (sets hidden_at)
+pnpm guestbook:show <id>     # make visible again (clears hidden_at)
+```
+
+`<id>` is the full id or a unique prefix of at least 6 characters, such as the
+short id shown by `guestbook:list`; ambiguous prefixes are refused. Hidden
+entries disappear on the next page load.
+
 > **Never commit the auth token** (or paste it in issues, logs or chat). If it
 > leaks, revoke it with `turso db tokens invalidate wedding-guestbook` and set
 > the new one in Vercel.
