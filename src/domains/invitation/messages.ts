@@ -111,12 +111,55 @@ export const invitationMessages = {
     body: 'Su presencia es nuestro mejor regalo. Si desean tener un detalle con nosotros, tendremos una lluvia de sobres el día de la recepción.'
   },
   dressCode: {
-    title: 'Código de color',
-    body: 'Con cariño les pedimos evitar los colores blanco y negro; el blanco está reservado para la novia.',
+    title: 'Código de vestimenta',
+    guests: {
+      title: 'Invitados',
+      style: 'Formal',
+      body: 'Con cariño les pedimos evitar los colores blanco y negro; el blanco está reservado para la novia.'
+    },
     avoidLabel: 'No usar',
     colors: {
       white: 'Blanco',
       black: 'Negro'
+    },
+    party: {
+      title: 'Nuestro cortejo',
+      swatchesLabel: (role: string) => `Colores de ${role}`,
+      roles: {
+        bride: { name: 'Novia', description: 'Vestido marfil de encaje' },
+        groom: {
+          name: 'Novio',
+          description:
+            'Traje gris claro, corbata gris oscuro y botonier de rosa blanca'
+        },
+        bridesmaids: {
+          name: 'Damas de honor',
+          description: 'Vestido largo de satín verde botella'
+        },
+        groomsmen: {
+          name: 'Caballeros de honor',
+          description: 'Traje gris carbón con corbata verde botella'
+        },
+        flowerGirl: {
+          name: 'Pajecita',
+          description: 'Vestido de tul rosa palo con lazo verde'
+        },
+        pageBoy: {
+          name: 'Pajecito',
+          description:
+            'Camisa blanca, moño rosa palo, tirantes verdes y pantalón gris carbón'
+        }
+      },
+      colorNames: {
+        ivory: 'Marfil',
+        lightGray: 'Gris claro',
+        darkGray: 'Gris oscuro',
+        roseWhite: 'Blanco rosa',
+        bottleGreen: 'Verde botella',
+        charcoal: 'Gris carbón',
+        blush: 'Rosa palo',
+        white: 'Blanco'
+      }
     }
   },
   calendar: {

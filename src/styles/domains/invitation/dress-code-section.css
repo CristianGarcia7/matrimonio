@@ -1,50 +1,218 @@
-.dress-code-section__content {
-  @apply flex flex-col items-center gap-5 text-center;
+.dress-code {
+  @apply max-w-3xl;
 }
 
-.dress-code-section__title {
+.dress-code .paper-card__content {
+  @apply px-5 sm:px-12;
+}
+
+.dress-code__content {
+  @apply flex flex-col items-center gap-10 text-center;
+}
+
+.dress-code__title {
   @apply font-display text-foil-deep text-[2rem] leading-tight text-balance sm:text-4xl;
 }
 
-.dress-code-section__body {
+.dress-code__guests {
+  @apply flex flex-col items-center gap-4;
+}
+
+.dress-code__subtitle,
+.dress-code__party-title {
+  @apply text-gold-deep text-xs font-semibold tracking-[0.32em] uppercase;
+}
+
+.dress-code__subtitle {
+  @apply flex flex-col items-center gap-1;
+}
+
+.dress-code__style {
+  @apply font-script text-bottle text-[2.6rem] leading-tight tracking-normal normal-case;
+}
+
+.dress-code__body {
   @apply text-ink-muted max-w-sm text-base leading-relaxed text-pretty italic;
 }
 
-.dress-code-section__swatches {
+.dress-code__avoided {
   @apply mt-2 flex items-start justify-center gap-10;
 }
 
-.dress-code-section__swatch-item {
+.dress-code__avoided-item {
   @apply flex flex-col items-center gap-3;
 }
 
 /* Round swatch struck through by a fine gold diagonal. */
-.dress-code-section__swatch {
-  @apply relative block size-16 overflow-hidden rounded-full sm:size-20;
+.dress-code__avoided-swatch {
+  @apply relative block size-14 overflow-hidden rounded-full sm:size-16;
   box-shadow:
     0 0 0 4px var(--paper),
     0 0 0 5px color-mix(in oklab, var(--gold-deep) 55%, transparent),
     0 10px 18px -10px rgb(0 0 0 / 0.45);
 }
 
-.dress-code-section__swatch::after {
+.dress-code__avoided-swatch::after {
   @apply absolute top-1/2 left-1/2 h-0.5 w-[130%] -translate-1/2 -rotate-45;
   content: '';
   background-color: var(--gold-deep);
 }
 
-.dress-code-section__swatch--white {
+.dress-code__avoided-swatch--white {
   @apply border-ink-muted/40 border bg-white;
 }
 
-.dress-code-section__swatch--black {
+.dress-code__avoided-swatch--black {
   @apply bg-black;
 }
 
-.dress-code-section__swatch--black::after {
+.dress-code__avoided-swatch--black::after {
   background-color: var(--gold);
 }
 
-.dress-code-section__swatch-label {
+.dress-code__avoided-label {
   @apply text-ink text-xs tracking-[0.3em] uppercase;
+}
+
+.dress-code__party {
+  @apply border-gold-deep/30 flex w-full flex-col items-center gap-6 border-t pt-10;
+}
+
+.dress-code__party-grid {
+  @apply grid w-full grid-cols-2 gap-3 sm:grid-cols-3 sm:gap-4;
+}
+
+/* Role card: hairline gold frame, garment, name, note and colour dots. Each
+   role modifier sets the garment fills. */
+.party-card {
+  @apply border-gold-deep/35 flex flex-col items-center gap-2 rounded-2xl border bg-white/45 px-2.5 pt-4 pb-5;
+  --garment-main: var(--paper);
+  --garment-accent: var(--gold);
+  --garment-detail: #ffffff;
+  --garment-trim: var(--gold);
+}
+
+.party-card--bride {
+  --garment-main: #f4ede1;
+}
+
+.party-card--groom {
+  --garment-main: #b9babb;
+  --garment-accent: #4a4d50;
+  --garment-trim: #f6f3ec;
+}
+
+.party-card--bridesmaids {
+  --garment-main: var(--bottle-light);
+}
+
+.party-card--groomsmen {
+  --garment-main: #3d3f42;
+  --garment-accent: var(--bottle-light);
+}
+
+.party-card--flower-girl {
+  --garment-main: #e7b9b8;
+  --garment-accent: var(--bottle-light);
+}
+
+.party-card--page-boy {
+  --garment-main: #3d3f42;
+  --garment-accent: var(--bottle-light);
+  --garment-trim: #e7b9b8;
+}
+
+.party-card__garment {
+  @apply mb-1 h-24 w-auto sm:h-28;
+}
+
+.garment__main,
+.garment__accent,
+.garment__detail,
+.garment__trim {
+  stroke: var(--gold-deep);
+  stroke-width: 1.1;
+  stroke-linejoin: round;
+}
+
+.garment__main {
+  fill: var(--garment-main);
+}
+
+.garment__accent {
+  fill: var(--garment-accent);
+}
+
+.garment__detail {
+  fill: var(--garment-detail);
+}
+
+.garment__trim {
+  fill: var(--garment-trim);
+}
+
+.garment__line {
+  fill: none;
+  stroke: var(--gold-deep);
+  stroke-width: 0.8;
+  stroke-linecap: round;
+  opacity: 0.75;
+}
+
+.garment__suspenders {
+  fill: none;
+  stroke: var(--garment-accent);
+  stroke-width: 3;
+  stroke-linecap: round;
+}
+
+.party-card__name {
+  @apply font-display text-bottle text-lg leading-tight sm:text-xl;
+}
+
+.party-card__description {
+  @apply text-ink-muted text-xs leading-snug text-pretty sm:text-sm;
+}
+
+.party-card__swatches {
+  @apply mt-auto flex flex-wrap justify-center gap-1.5 pt-2;
+}
+
+.party-card__swatch {
+  @apply block size-5 rounded-full;
+  box-shadow:
+    0 0 0 2px var(--paper),
+    0 0 0 3px color-mix(in oklab, var(--gold-deep) 55%, transparent);
+}
+
+.party-card__swatch--ivory {
+  background-color: #f4ede1;
+}
+
+.party-card__swatch--light-gray {
+  background-color: #b9babb;
+}
+
+.party-card__swatch--dark-gray {
+  background-color: #4a4d50;
+}
+
+.party-card__swatch--rose-white {
+  background-color: #f6f3ec;
+}
+
+.party-card__swatch--bottle-green {
+  background-color: var(--bottle-light);
+}
+
+.party-card__swatch--charcoal {
+  background-color: #3d3f42;
+}
+
+.party-card__swatch--blush {
+  background-color: #e7b9b8;
+}
+
+.party-card__swatch--white {
+  background-color: #ffffff;
 }
