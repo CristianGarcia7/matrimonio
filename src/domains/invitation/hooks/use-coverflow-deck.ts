@@ -106,7 +106,9 @@ export function useCoverflowDeck(total: number) {
   const handlePointerDown = (event: PointerEvent<HTMLElement>) => {
     pauseForInactivity();
     didSwipeRef.current = false;
-    swipeStartXRef.current = event.clientX;
+    // Only touch and pen drags count as swipes; a mouse drag is just a click.
+    swipeStartXRef.current =
+      event.pointerType === 'mouse' ? null : event.clientX;
   };
 
   const handlePointerUp = (event: PointerEvent<HTMLElement>) => {
