@@ -94,7 +94,8 @@ export const invitationMessages = {
     },
     reception: {
       title: 'Recepción',
-      venue: 'Eventos Adonais',
+      venue: 'Eventos y Recepciones Yesica Jiménez',
+      place: 'Salón del piso 2',
       time: '7:00 p. m.'
     }
   },
@@ -151,7 +152,7 @@ export const invitationMessages = {
   calendar: {
     eventTitle: 'Boda de Ignacio Garcia & Patricia Yaima',
     details:
-      'Ceremonia religiosa a las 5:30 p. m. en la Parroquia Juan Pablo II (Barrio Margaritas). Recepción a las 7:00 p. m. en Eventos Adonais.',
+      'Ceremonia religiosa a las 5:30 p. m. en la Parroquia Juan Pablo II (Barrio Margaritas). Recepción a las 7:00 p. m. en Eventos y Recepciones Yesica Jiménez, salón del piso 2.',
     location: 'Parroquia Juan Pablo II, Barrio Margaritas'
   },
   blessing: {
