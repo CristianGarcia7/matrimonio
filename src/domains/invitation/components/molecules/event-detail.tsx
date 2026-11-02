@@ -1,4 +1,5 @@
 import { ExternalLink } from '@/components/atoms/external-link';
+import { cn } from '@/lib/utils';
 
 interface EventDetailProps {
   title: string;
@@ -6,6 +7,7 @@ interface EventDetailProps {
   timeLabel: string;
   venue: string;
   place?: string;
+  isPlaceHighlighted?: boolean;
   mapsUrl: string;
   mapsLinkLabel: string;
   mapsLinkAriaLabel: string;
@@ -17,6 +19,7 @@ export function EventDetail({
   timeLabel,
   venue,
   place,
+  isPlaceHighlighted = false,
   mapsUrl,
   mapsLinkLabel,
   mapsLinkAriaLabel
@@ -29,7 +32,15 @@ export function EventDetail({
         {time}
       </p>
       <p className="event-detail__venue">{venue}</p>
-      {place && <p className="event-detail__place">{place}</p>}
+      {place && (
+        <p
+          className={cn('event-detail__place', {
+            'event-detail__place--highlighted': isPlaceHighlighted
+          })}
+        >
+          {place}
+        </p>
+      )}
       <ExternalLink
         href={mapsUrl}
         ariaLabel={mapsLinkAriaLabel}

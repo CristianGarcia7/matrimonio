@@ -64,6 +64,11 @@
   @apply text-ink-muted text-sm italic;
 }
 
+/* Solid pill so guests notice which of the building's halls to go to. */
+.event-detail__place--highlighted {
+  @apply bg-bottle text-ivory font-display mt-2 rounded-full px-6 py-2 text-2xl leading-tight not-italic;
+}
+
 /* Gold-ringed pills on paper: deep gold hairline plus an outer halo ring. */
 .event-detail__link,
 .event-info__calendar-link {

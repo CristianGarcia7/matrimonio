@@ -53,6 +53,7 @@ export function EventsSection() {
               timeLabel={events.timeLabel}
               venue={reception.venue}
               place={reception.place}
+              isPlaceHighlighted
               mapsUrl={RECEPTION_MAPS_URL}
               mapsLinkLabel={events.mapsLinkLabel}
               mapsLinkAriaLabel={events.mapsLinkAriaLabel(reception.venue)}
