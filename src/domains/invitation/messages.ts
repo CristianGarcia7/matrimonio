@@ -129,7 +129,7 @@ export const invitationMessages = {
     guests: {
       title: 'Invitados',
       style: 'Formal',
-      body: 'Con cariño les pedimos NO usar estos colores, reservados para los novios, el cortejo y la familia.'
+      body: 'Con cariño les pedimos NO usar estos colores, reservados para los novios y el cortejo nupcial.'
     },
     avoidLabel: 'No usar',
     groups: {
