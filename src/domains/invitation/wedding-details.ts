@@ -8,6 +8,9 @@ export const CEREMONY_MAPS_URL = 'https://maps.app.goo.gl/nFMDQc8142s7JkrD8';
 
 export const RECEPTION_MAPS_URL = 'https://maps.app.goo.gl/rrQuSvWAFN9HqPtB6';
 
+// WhatsApp number (Colombia, +57) that receives attendance confirmations.
+export const RSVP_WHATSAPP_NUMBER = '573222500549';
+
 // Google Calendar range in UTC: 5:30 p. m. to 11:30 p. m. Bogota time.
 export const CALENDAR_EVENT_DATES = '20270109T223000Z/20270110T043000Z';
 

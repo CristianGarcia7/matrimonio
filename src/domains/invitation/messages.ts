@@ -120,6 +120,15 @@ export const invitationMessages = {
     nextLabel: 'Foto siguiente',
     counter: (position: number, total: number) => `${position} / ${total}`
   },
+  rsvp: {
+    title: 'Confirma tu asistencia',
+    body: 'Nos ayudará mucho saber si nos acompañas. Por favor confírmanos tu asistencia a más tardar el 28 de diciembre de 2026.',
+    linkLabel: 'Confirmar por WhatsApp',
+    linkAriaLabel:
+      'Confirmar asistencia por WhatsApp al 322 250 0549 (se abre en una nueva pestaña)',
+    whatsappMessage:
+      'Hola, quiero confirmar mi asistencia a la boda de Ignacio y Patricia el 9 de enero de 2027.'
+  },
   gift: {
     title: 'Lluvia de sobres',
     body: 'Su presencia es nuestro mejor regalo. Si desean tener un detalle con nosotros, tendremos una lluvia de sobres el día de la recepción.'

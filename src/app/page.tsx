@@ -15,6 +15,7 @@ import { HeroSection } from '@/domains/invitation/components/organisms/hero-sect
 import { InvitationClosing } from '@/domains/invitation/components/organisms/invitation-closing';
 import { InvitationCover } from '@/domains/invitation/components/organisms/invitation-cover';
 import { MusicPlayer } from '@/domains/invitation/components/organisms/music-player';
+import { RsvpSection } from '@/domains/invitation/components/organisms/rsvp-section';
 
 export default function HomePage() {
   return (
@@ -33,6 +34,7 @@ export default function HomePage() {
           <GallerySection />
           <EventsSection />
           <CountdownSection />
+          <RsvpSection />
           <GiftSection />
           <DressCodeSection />
           <GuestbookSection />
